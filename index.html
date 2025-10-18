@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donipati Sravani - My Portfolio</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome (icons used only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-HK5fgLBL+xZ...==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Donipati Sravani</div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="controls">
+        <label class="switch" title="Toggle dark / light">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle theme">
+          <span class="slider round"></span>
+        </label>
+
+        <button class="hamburger" id="hamburger" aria-label="Open navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero section" id="home">
+    <div class="hero-content">
+      <h1>Hello, I'm Donipati Sravani</h1>
+      <p>I am a <span id="typed-text" aria-live="polite"></span><span class="cursor" aria-hidden="true">|</span></p>
+
+      <div class="hero-buttons">
+        <a href="https://drive.google.com/file/d/16Zsn6UT6bLkuPaG4dng_YP6_khryb1_l/view?usp=drivesdk" class="btn" target="_blank" rel="noopener">Download Resume</a>
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+
+      <div class="social-icons hero-socials" aria-hidden="false">
+        <a href="https://www.linkedin.com/in/donipati-sravani" target="_blank" class="social linkedin">
+          <i class="fab fa-linkedin"></i>
+          <span class="icon-name">LinkedIn</span>
+        </a>
+        <a href="https://github.com/DONIPATI-SRAVANI" target="_blank" class="social github">
+          <i class="fab fa-github"></i>
+          <span class="icon-name">GitHub</span>
+        </a>
+        <a href="https://www.hackerrank.com/profile/21A31A4407" target="_blank" class="social hackerrank">
+          <i class="fab fa-hackerrank"></i>
+          <span class="icon-name">HackerRank</span>
+        </a>
+        <a href="https://leetcode.com/u/DONIPATI_SRAVANI/" target="_blank" class="social leetcode">
+          <i class="fas fa-code"></i>
+          <span class="icon-name">LeetCode</span>
+        </a>
+        <a href="https://www.cloudskillsboost.google/public_profiles/930d34a8-728e-40c1-b3f9-dd536fe63e82" target="_blank" class="social gcloud">
+          <i class="fas fa-cloud"></i>
+          <span class="icon-name">Google Cloud</span>
+        </a>
+        <a href="https://www.credly.com/users/donipati-sravani/badges#credly" target="_blank" class="social credly">
+          <i class="fas fa-certificate"></i>
+          <span class="icon-name">Credly</span>
+        </a>
+        <a href="https://www.salesforce.com/trailblazer/donipatisravani" target="_blank" class="social salesforce">
+          <i class="fas fa-cloud"></i>
+          <span class="icon-name">Salesforce</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About / Summary -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Motivated and enthusiastic student eager to apply academic knowledge to real-world challenges, with a strong interest in learning and adapting to new technologies. A proactive, self-driven individual who thrives in team environments and is committed to continuous learning and professional development.</p>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <div class="cards-container">
+      <div class="card exp-card">
+        <h3>Salesforce Student Intern (Aug - Oct 23)</h3>
+        <p>Smartinternz - Assisted in developing and customizing Salesforce solutions, gaining hands-on experience in CRM management and cloud technologies.</p>
+        <a href="https://drive.google.com/file/d/11PDDsJ6yXa1Qy9b7-QnCCtErOM3l7iUr/view?usp=drivesdk" target="_blank" class="card-link">Certificate</a>
+      </div>
+      <div class="card exp-card">
+        <h3>Cyber Security Student Intern (Jul - Sep 22)</h3>
+        <p>Palo Alto Networks - Worked with cybersecurity experts to identify and address security vulnerabilities.</p>
+        <a href="https://drive.google.com/file/d/11Oo_iexoSv-8SJd8muHdeJGXVwLDyXt3/view?usp=drivesdk" target="_blank" class="card-link">Certificate</a>
+      </div>
+      <div class="card exp-card">
+        <h3>AI-ML Student Intern (Jul - Sep 22)</h3>
+        <p>Google for Developers - Collaborated in AI/ML model development and testing.</p>
+        <a href="https://drive.google.com/file/d/116YtuAt67vS5bPn3jkjWek0Vd05dYIOd/view?usp=drivesdk" target="_blank" class="card-link">Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <h2>Education</h2>
+    <div class="cards-container">
+      <div class="card edu-card">
+        <h3>Pragati Engineering College</h3>
+        <p>CSE - Data Science | CGPA:7.8 | 2021 - 2025</p>
+      </div>
+      <div class="card edu-card">
+        <h3>Pragati Junior College</h3>
+        <p>MPC | CGPA:8.4 | 2019 - 2021</p>
+      </div>
+      <div class="card edu-card">
+        <h3>Mohan High School</h3>
+        <p>SSC | CGPA:9.0 | 2018 - 2019</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="cards-container skills-container">
+      <div class="card">Good Communication</div>
+      <div class="card">Problem Solving</div>
+      <div class="card">Typing</div>
+      <div class="card">Microsoft Excel</div>
+      <div class="card">Time Management</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="cards-container">
+      <div class="card">
+        <h3>Community Service Project</h3>
+        <a href="https://drive.google.com/file/d/1eDc77nJMGCjDiGibuR2w_57mTuPC5ydH/view?usp=drivesdk" target="_blank" class="card-link">View Project</a>
+      </div>
+      <div class="card">
+        <h3>Flipkart Sentimental Analysis</h3>
+        <a href="https://github.com/DONIPATI-SRAVANI/Projects/tree/e39dd16830591db26e53d8f34897bde474f9c427/Mini_Projects/DM_Mini_Project" target="_blank" class="card-link">Github Link</a>
+      </div>
+      <div class="card">
+        <h3>Student Study Time Tracker</h3>
+        <a href="https://github.com/DONIPATI-SRAVANI/Projects/tree/de6ba26fdb66192b2d661269092e54a74e99a6bd/Mini_Projects/Student%20Time%20Tracker" target="_blank" class="card-link">Github Link</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates -->
+  <section id="certificates" class="section">
+    <h2>Certificates</h2>
+    <div class="cards-container certificate-links">
+      <div class="card">
+        <h3>Salesforce AI Associate</h3>
+        <a href="https://drive.google.com/file/d/11NUQIqHt1xAefcdaCpNnsxrPA6H5Cp9a/view?usp=drivesdk" target="_blank" class="card-link">View Certificate</a>
+      </div>
+      <div class="card">
+        <h3>Python for Data Science - NPTEL</h3>
+        <a href="https://drive.google.com/file/d/11AiqsAiqutMRNj0dvjD4zUTgJ0PIkcWf/view?usp=drivesdk" target="_blank" class="card-link">View Certificate</a>
+      </div>
+      <div class="card">
+        <h3>Service Now Micro-certification</h3>
+        <a href="https://drive.google.com/file/d/11OxUtDnmwNF_LylRQL4wXZjWZiFH5bjj/view?usp=drivesdk" target="_blank" class="card-link">View Certificate</a>
+      </div>
+      <div class="card">
+        <h3>Multicloud Network Associate - Aviatrix</h3>
+        <a href="https://drive.google.com/file/d/11Pm46fE1E5jchncgdYV2rN1ObafsTSzR/view?usp=drivesdk" target="_blank" class="card-link">View Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+      <p id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Donipati Sravani, All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/donipati-sravani" target="_blank" rel="noopener">LinkedIn</a> |
+      <a href="https://github.com/DONIPATI-SRAVANI" target="_blank" rel="noopener">GitHub</a> |
+      <a href="https://www.hackerrank.com/profile/21A31A4407" target="_blank" rel="noopener">Hackerrank</a> |
+      <a href="https://leetcode.com/u/DONIPATI_SRAVANI/" target="_blank" rel="noopener">Leetcode</a> |
+      <a href="https://www.cloudskillsboost.google/public_profiles/930d34a8-728e-40c1-b3f9-dd536fe63e82" target="_blank" rel="noopener">Google Cloud</a> |
+      <a href="https://www.credly.com/users/donipati-sravani/badges#credly" target="_blank" rel="noopener">Credly</a> |
+      <a href="https://www.salesforce.com/trailblazer/donipatisravani" target="_blank" rel="noopener">Salesforce</a>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
