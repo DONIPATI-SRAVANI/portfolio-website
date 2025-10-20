@@ -263,49 +263,54 @@ body.dark #back-to-top:hover{
   }
 }
 
-/* About Me and Footer text aligned perfectly with card grid and sections */
-#about p,
-footer p {
-  max-width: 1200px;           /* matches your main container width */
-  margin: 0 auto 20px auto;    /* centered horizontally with spacing below */
-  text-align: justify;          /* even edges on both sides */
-  line-height: 1.7;             /* consistent spacing with cards */
-  font-size: clamp(14px, 1.6vw, 17px); /* responsive font size */
-  padding: 0 20px;              /* horizontal padding matching section spacing */
+/* About Me text - dynamic width, compact, justified */
+#about p {
+  max-width: 70ch;               /* limits line length in characters for readability */
+  margin: 0 auto 16px auto;      /* moderate paragraph spacing */
+  text-align: justify;           /* even edges */
+  line-height: 1.6;              /* comfortable spacing */
+  font-size: clamp(14px, 1.6vw, 17px);
+  padding: 0 20px;               /* horizontal padding for small screens */
   box-sizing: border-box;
 }
 
-/* Large tablets / smaller desktops */
+/* Responsive adjustments for About text */
 @media (max-width: 1024px) {
-  #about p,
-  footer p {
-    max-width: 95%;
-    margin-bottom: 18px;
+  #about p {
+    max-width: 65ch;
+    margin-bottom: 14px;
     padding: 0 16px;
-    line-height: 1.65;
+    line-height: 1.55;
   }
 }
 
-/* Standard mobile devices */
 @media (max-width: 768px) {
-  #about p,
-  footer p {
-    max-width: 100%;
-    margin-bottom: 16px;
+  #about p {
+    max-width: 90%;               /* take most of screen width on mobile */
+    margin-bottom: 12px;
     padding: 0 12px;
     font-size: clamp(13px, 2.2vw, 15px);
-    line-height: 1.6;
+    line-height: 1.5;
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
-  #about p,
-  footer p {
+  #about p {
     max-width: 100%;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     padding: 0 8px;
     font-size: 13px;
-    line-height: 1.75;
+    line-height: 1.5;
   }
+}
+
+/* Footer text - always centered */
+footer p {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  font-size: clamp(14px, 1.6vw, 17px);
+  padding: 0 20px;
+  line-height: 1.7;
+  max-width: 100%;
+  box-sizing: border-box;
 }
