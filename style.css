@@ -263,54 +263,56 @@ body.dark #back-to-top:hover{
   }
 }
 
-/* About Me text - dynamic width, compact, justified */
+/* About Me text aligned with main content */
 #about p {
-  max-width: 70ch;               /* limits line length in characters for readability */
-  margin: 0 auto 16px auto;      /* moderate paragraph spacing */
+  max-width: 1200px;            /* same as main content container */
+  margin: 0 auto 20px auto;     /* center horizontally with spacing */
   text-align: justify;           /* even edges */
-  line-height: 1.6;              /* comfortable spacing */
+  line-height: 1.65;             /* comfortable spacing */
   font-size: clamp(14px, 1.6vw, 17px);
-  padding: 0 20px;               /* horizontal padding for small screens */
+  padding: 0 20px;               /* small padding for smaller screens */
   box-sizing: border-box;
 }
 
-/* Responsive adjustments for About text */
+/* Footer text - centered and visually aligned with main content */
+footer p {
+  max-width: 1200px;             /* same width as content container */
+  margin: 0 auto 20px auto;      /* center horizontally */
+  text-align: center;            /* always centered */
+  line-height: 1.6;
+  font-size: clamp(14px, 1.6vw, 16px); /* responsive size */
+  padding: 0 20px;               /* small padding for smaller screens */
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments for tablets and smaller desktops */
 @media (max-width: 1024px) {
-  #about p {
-    max-width: 65ch;
-    margin-bottom: 14px;
+  #about p,
+  footer p {
+    max-width: 95%;              /* slightly narrower than desktop */
     padding: 0 16px;
+  }
+}
+
+/* Standard mobile devices */
+@media (max-width: 768px) {
+  #about p,
+  footer p {
+    max-width: 100%;             /* full width on mobile */
+    padding: 0 12px;
+    font-size: clamp(13px, 2.2vw, 15px);
     line-height: 1.55;
   }
 }
 
-@media (max-width: 768px) {
-  #about p {
-    max-width: 90%;               /* take most of screen width on mobile */
-    margin-bottom: 12px;
-    padding: 0 12px;
-    font-size: clamp(13px, 2.2vw, 15px);
-    line-height: 1.5;
-  }
-}
-
+/* Small mobile devices */
 @media (max-width: 480px) {
-  #about p {
+  #about p,
+  footer p {
     max-width: 100%;
-    margin-bottom: 10px;
     padding: 0 8px;
     font-size: 13px;
     line-height: 1.5;
+    margin-bottom: 12px;
   }
-}
-
-/* Footer text - always centered */
-footer p {
-  text-align: center;
-  margin: 0 auto 20px auto;
-  font-size: clamp(14px, 1.6vw, 17px);
-  padding: 0 20px;
-  line-height: 1.7;
-  max-width: 100%;
-  box-sizing: border-box;
 }
