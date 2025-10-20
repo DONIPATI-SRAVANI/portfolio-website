@@ -29,7 +29,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
 .nav-links li a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:currentColor;transition:width .25s;}
 .nav-links li a:hover::after{width:100%;}
 
-/* Controls (theme/hamburger) */
+/* controls (theme/hamburger) */
 .controls{display:flex;align-items:center;gap:12px;}
 .switch{position:relative;width:50px;height:24px;display:inline-block;}
 .switch input{display:none;}
@@ -47,11 +47,9 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 .cursor {
-  display: inline-block;
+  display: inline;
   position: relative;
   top: -0.15em; /* lift cursor slightly to align with text */
-  width: 2px;   /* visible cursor line */
-  background: var(--text);
   animation: blink 0.8s infinite;
 }
 
@@ -59,7 +57,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
-
 /* Hero Buttons */
 .hero-buttons .btn{
   display:inline-block;
@@ -117,24 +114,6 @@ body.dark .hero-socials .icon-name{color:#fff;}
 .section{max-width:1200px;margin:80px auto;padding:0 20px;}
 .section h2{text-align:center;margin-bottom:20px;font-size:1.9rem;}
 
-/* About Me Paragraph */
-#about p {
-  max-width:650px;
-  margin:0 auto 20px;
-  font-size:clamp(14px,1.1rem,16px);
-  line-height:1.6;
-  text-align:center;
-  word-wrap:break-word;
-  padding:0 10px;
-  color:rgba(0,0,0,0.8);
-}
-@media(max-width:768px){
-  #about p { max-width:90%; font-size:clamp(14px,1rem,15px); line-height:1.75; }
-}
-@media(max-width:480px){
-  #about p { font-size:14px; line-height:1.9; padding:0 8px; }
-}
-
 /* Cards grid */
 .cards-container{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start;}
 .card{
@@ -151,6 +130,8 @@ body.dark .hero-socials .icon-name{color:#fff;}
   align-items: stretch;
 }
 .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.12);background:#e6e6e6;}
+
+/* Card title + link inline */
 .card h3{margin:0;font-size:1.1rem;}
 .card-link{
   display:inline;
@@ -206,29 +187,8 @@ body.dark .hero-socials .icon-name{color:#fff;}
 @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
 /* Footer */
-footer{
-  text-align:center;
-  padding:20px 10px;
-  background:transparent;
-  color:inherit;
-}
-footer p{
-  max-width:650px;
-  margin:0 auto 12px;
-  font-size:clamp(14px,1.1rem,16px);
-  line-height:1.6;
-  text-align:center;
-  word-wrap:break-word;
-  padding:0 10px;
-  color:rgba(0,0,0,0.8);
-}
-
-@media(max-width:768px){
-  footer p { max-width:90%; font-size:clamp(13px,1rem,15px); line-height:1.75; padding:0 8px; }
-}
-@media(max-width:480px){
-  footer p { font-size:13px; line-height:1.9; padding:0 6px; }
-}
+footer{text-align:center;padding:18px 10px;margin-top:40px;background:transparent;color:inherit;}
+.footer-links a{color:inherit;text-decoration:none;margin:0 6px;}
 
 /* Back-to-top button */
 #back-to-top{
@@ -288,9 +248,61 @@ body.dark #back-to-top:hover{
   .hero{padding-top:110px;}
 }
 
-/* Desktop layout adjustments */
+/* Desktop layout for mobile desktop mode & laptops */
 @media(min-width:769px){
-  .cards-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .hero { min-height: 100vh; padding-top:120px; padding-bottom:40px; }
-  .hero-buttons { margin-bottom:30px; }
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .hero {
+    min-height: 100vh;
+    padding-top:120px;
+    padding-bottom:40px;
+  }
+  .hero-buttons {
+    margin-bottom:30px;
+  }
+}
+
+/* About Me and Footer text aligned with card grid */
+#about p,
+footer p {
+  max-width: 1020px;        /* matches card grid width */
+  margin: 0 auto 20px auto; /* bottom spacing like card gaps */
+  text-align: justify;       /* clean edges on both sides */
+  line-height: 1.7;          /* slightly taller for readability, matches card spacing */
+  font-size: clamp(14px, 1.6vw, 17px); /* responsive font size */
+  padding: 0 20px;           /* horizontal spacing like sections/cards */
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  #about p,
+  footer p {
+    max-width: 90%;
+    margin-bottom: 18px;
+    padding: 0 16px;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 768px) {
+  #about p,
+  footer p {
+    max-width: 95%;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: clamp(13px, 2.2vw, 15px);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  #about p,
+  footer p {
+    max-width: 100%;
+    margin-bottom: 14px;
+    padding: 0 8px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
 }
