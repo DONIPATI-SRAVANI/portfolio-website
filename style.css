@@ -267,54 +267,87 @@ body.dark #back-to-top:hover{
 /* Section container aligns with cards */
 .section {
   max-width: 1200px;        /* same as card container */
-  margin: 0 auto;           /* center horizontally */
-  padding: 0 20px;          /* horizontal padding matching cards */
+  margin: 0 auto;
+  padding: 0 20px;
   box-sizing: border-box;
+}
+
+/* Vertical spacing between sections except Footer */
+.section + .section:not(:last-child) {
+  margin-top: 32px;         /* desktop spacing matches card gap */
 }
 
 /* About Section */
 #about p {
-  margin: 0;                /* no extra gap above/below section */
+  margin: 0;
   text-align: justify;
-  line-height: 1.6;         /* balanced spacing, not airy */
+  line-height: 1.6;
   font-size: clamp(14px, 1.6vw, 17px);
 }
 
-/* Only space between paragraphs inside About */
+/* Paragraph spacing inside About */
 #about p + p {
-  margin-top: 12px;         /* natural paragraph spacing */
+  margin-top: 12px;         /* spacing between paragraphs */
 }
 
 /* Footer Section */
 footer p {
-  margin: 0;                /* no extra gap above/below footer */
-  text-align: center;       /* always centered */
-  line-height: 1.6;
-  font-size: clamp(14px, 1.6vw, 16px);
+  margin: 0;                /* no extra gap after footer */
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;          /* smaller on desktop */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-/* Responsive adjustments to match cards */
+/* Tablet / smaller desktops */
 @media (max-width: 1024px) {
-  .section, #about p, footer p {
+  .section, #about p {
     max-width: 95%;
-    padding: 0 16px;        /* match smaller card spacing */
+    padding: 0 16px;
+  }
+
+  .section + .section:not(:last-child) {
+    margin-top: 24px;       /* tablet spacing matches card gap */
+  }
+
+  footer p {
+    font-size: 15px;
   }
 }
 
+/* Standard mobile devices */
 @media (max-width: 768px) {
-  .section, #about p, footer p {
+  .section, #about p {
     max-width: 100%;
     padding: 0 12px;
     font-size: clamp(13px, 2.2vw, 15px);
     line-height: 1.55;
   }
+
+  .section + .section:not(:last-child) {
+    margin-top: 16px;       /* mobile spacing matches card gap */
+  }
+
+  footer p {
+    font-size: 16px;        /* readable on mobile */
+  }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
-  .section, #about p, footer p {
+  .section, #about p {
     max-width: 100%;
     padding: 0 8px;
     font-size: 13px;
     line-height: 1.5;
+  }
+
+  .section + .section:not(:last-child) {
+    margin-top: 16px;       /* small mobile same as mobile */
+  }
+
+  footer p {
+    font-size: 14px;
   }
 }
