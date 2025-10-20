@@ -47,13 +47,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 .cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: var(--text, #000);
-  margin-left: 4px;
   animation: blink 0.8s infinite;
-  vertical-align: middle;
 }
 
 @keyframes blink {
@@ -273,4 +267,5 @@ footer p, #about p {
   font-size: clamp(14px, 1.6vw, 17px);
 
 }
+
 
