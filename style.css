@@ -272,22 +272,22 @@ body.dark #back-to-top:hover{
   box-sizing: border-box;
 }
 
-/* Vertical spacing between sections except Footer */
+/* Comfortable vertical spacing between sections except Footer */
 .section + .section:not(:last-child) {
-  margin-top: 32px;         /* desktop spacing matches card gap */
+  margin-top: 60px;         /* comfortable spacing like before */
 }
 
 /* About Section */
 #about p {
   margin: 0;
   text-align: justify;
-  line-height: 1.6;
+  line-height: 1.65;        /* comfortable reading spacing */
   font-size: clamp(14px, 1.6vw, 17px);
 }
 
 /* Paragraph spacing inside About */
 #about p + p {
-  margin-top: 12px;         /* spacing between paragraphs */
+  margin-top: 16px;         /* natural spacing between paragraphs */
 }
 
 /* Footer Section */
@@ -308,7 +308,7 @@ footer p {
   }
 
   .section + .section:not(:last-child) {
-    margin-top: 24px;       /* tablet spacing matches card gap */
+    margin-top: 50px;       /* slightly smaller on tablet */
   }
 
   footer p {
@@ -326,7 +326,7 @@ footer p {
   }
 
   .section + .section:not(:last-child) {
-    margin-top: 16px;       /* mobile spacing matches card gap */
+    margin-top: 40px;       /* mobile spacing comfortable */
   }
 
   footer p {
@@ -344,7 +344,7 @@ footer p {
   }
 
   .section + .section:not(:last-child) {
-    margin-top: 16px;       /* small mobile same as mobile */
+    margin-top: 32px;       /* small mobile spacing */
   }
 
   footer p {
