@@ -263,56 +263,57 @@ body.dark #back-to-top:hover{
   }
 }
 
-/* About Me text aligned with main content */
+/* Container for sections (optional wrapper) */
+.section {
+  max-width: 1200px;       /* matches your content grid */
+  margin: 0 auto;          /* center horizontally */
+  padding: 0 20px;         /* horizontal padding for smaller screens */
+  box-sizing: border-box;
+}
+
+/* About Section */
 #about p {
-  max-width: 1200px;            /* same as main content container */
-  margin: 0 auto 20px auto;     /* center horizontally with spacing */
-  text-align: justify;           /* even edges */
-  line-height: 1.65;             /* comfortable spacing */
+  margin: 0;               /* no extra bottom margin after section */
+  text-align: justify;
+  line-height: 1.65;
   font-size: clamp(14px, 1.6vw, 17px);
-  padding: 0 20px;               /* small padding for smaller screens */
-  box-sizing: border-box;
 }
 
-/* Footer text - centered and visually aligned with main content */
+/* Spacing only between paragraphs inside About */
+#about p + p {
+  margin-top: 16px;
+}
+
+/* Footer Section */
 footer p {
-  max-width: 1200px;             /* same width as content container */
-  margin: 0 auto 20px auto;      /* center horizontally */
-  text-align: center;            /* always centered */
+  margin: 0;               /* no extra spacing after footer */
+  text-align: center;
   line-height: 1.6;
-  font-size: clamp(14px, 1.6vw, 16px); /* responsive size */
-  padding: 0 20px;               /* small padding for smaller screens */
-  box-sizing: border-box;
+  font-size: clamp(14px, 1.6vw, 16px);
 }
 
-/* Responsive adjustments for tablets and smaller desktops */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
-  #about p,
-  footer p {
-    max-width: 95%;              /* slightly narrower than desktop */
+  .section, #about p, footer p {
+    max-width: 95%;
     padding: 0 16px;
   }
 }
 
-/* Standard mobile devices */
 @media (max-width: 768px) {
-  #about p,
-  footer p {
-    max-width: 100%;             /* full width on mobile */
+  .section, #about p, footer p {
+    max-width: 100%;
     padding: 0 12px;
     font-size: clamp(13px, 2.2vw, 15px);
     line-height: 1.55;
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
-  #about p,
-  footer p {
+  .section, #about p, footer p {
     max-width: 100%;
     padding: 0 8px;
     font-size: 13px;
     line-height: 1.5;
-    margin-bottom: 12px;
   }
 }
