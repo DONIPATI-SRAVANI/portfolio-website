@@ -47,6 +47,9 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 .cursor {
+  display: inline;
+  position: relative;
+  top: -0.05em; /* lift cursor slightly to align with text */
   animation: blink 0.8s infinite;
 }
 
@@ -267,5 +270,6 @@ footer p, #about p {
   font-size: clamp(14px, 1.6vw, 17px);
 
 }
+
 
 
