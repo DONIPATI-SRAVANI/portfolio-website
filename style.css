@@ -49,7 +49,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,
 .cursor {
   display: inline;
   position: relative;
-  top: -0.05em; /* lift cursor slightly to align with text */
+  top: -0.15em; /* lift cursor slightly to align with text */
   animation: blink 0.8s infinite;
 }
 
@@ -270,6 +270,7 @@ footer p, #about p {
   font-size: clamp(14px, 1.6vw, 17px);
 
 }
+
 
 
 
