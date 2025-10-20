@@ -263,40 +263,41 @@ body.dark #back-to-top:hover{
   }
 }
 
-/* Container for sections (optional wrapper) */
+
+/* Section container aligns with cards */
 .section {
-  max-width: 1200px;       /* matches your content grid */
-  margin: 0 auto;          /* center horizontally */
-  padding: 0 20px;         /* horizontal padding for smaller screens */
+  max-width: 1200px;        /* same as card container */
+  margin: 0 auto;           /* center horizontally */
+  padding: 0 20px;          /* horizontal padding matching cards */
   box-sizing: border-box;
 }
 
 /* About Section */
 #about p {
-  margin: 0;               /* no extra bottom margin after section */
+  margin: 0;                /* no extra gap above/below section */
   text-align: justify;
-  line-height: 1.65;
+  line-height: 1.6;         /* balanced spacing, not airy */
   font-size: clamp(14px, 1.6vw, 17px);
 }
 
-/* Spacing only between paragraphs inside About */
+/* Only space between paragraphs inside About */
 #about p + p {
-  margin-top: 16px;
+  margin-top: 12px;         /* natural paragraph spacing */
 }
 
 /* Footer Section */
 footer p {
-  margin: 0;               /* no extra spacing after footer */
-  text-align: center;
+  margin: 0;                /* no extra gap above/below footer */
+  text-align: center;       /* always centered */
   line-height: 1.6;
   font-size: clamp(14px, 1.6vw, 16px);
 }
 
-/* Responsive Adjustments */
+/* Responsive adjustments to match cards */
 @media (max-width: 1024px) {
   .section, #about p, footer p {
     max-width: 95%;
-    padding: 0 16px;
+    padding: 0 16px;        /* match smaller card spacing */
   }
 }
 
