@@ -1,6 +1,5 @@
 /* ======================= Reset & Base ======================= */
 * { margin:0; padding:0; box-sizing:border-box; }
-
 :root{
   --bg:#ffffff;
   --text:#111;
@@ -11,7 +10,6 @@
   --card-border-light:#000;
   --card-border-dark:#fff;
 }
-
 html,body { height:100%; }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -23,48 +21,12 @@ body {
 }
 
 /* ======================= Navigation ======================= */
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1200;
-  background:rgba(249,249,249,0.98);
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
-}
-.nav-container{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 20px;
-  gap:10px;
-}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1200;background:rgba(249,249,249,0.98);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:10px;}
 .logo{font-weight:700;font-size:1.15rem;}
-.nav-links{
-  display:flex;
-  gap:18px;
-  list-style:none;
-  align-items:center;
-}
-.nav-links li a{
-  position:relative;
-  color:inherit;
-  padding:6px 4px;
-  transition:color .25s;
-  text-decoration:none;
-}
-.nav-links li a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-2px;
-  height:2px;
-  width:0;
-  background:currentColor;
-  transition:width .25s;
-}
+.nav-links{display:flex;gap:18px;list-style:none;align-items:center;}
+.nav-links li a{position:relative;color:inherit;padding:6px 4px;transition:color .25s;text-decoration:none;}
+.nav-links li a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:currentColor;transition:width .25s;}
 .nav-links li a:hover::after{width:100%;}
 
 /* Controls (theme/hamburger) */
@@ -72,17 +34,7 @@ nav{
 .switch{position:relative;width:50px;height:24px;display:inline-block;}
 .switch input{display:none;}
 .slider{position:absolute;inset:0;background:#ccc;border-radius:34px;transition:background .25s;}
-.slider::before{
-  content:"";
-  position:absolute;
-  left:3px;
-  bottom:3px;
-  width:18px;
-  height:18px;
-  background:#fff;
-  border-radius:50%;
-  transition:transform .25s;
-}
+.slider::before{content:"";position:absolute;left:3px;bottom:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .25s;}
 .switch input:checked + .slider{background:#111;}
 .switch input:checked + .slider::before{transform:translateX(26px);}
 
@@ -91,75 +43,25 @@ nav{
 .hamburger span{display:block;height:3px;background:var(--text);margin:5px 0;border-radius:3px;transition:all .25s;}
 
 /* ======================= Hero ======================= */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:120px 20px 0;
-  text-align:center;
-  background:linear-gradient(180deg,#fafafa,#f5f5f5);
-}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 20px 0;text-align:center;background:linear-gradient(180deg,#fafafa,#f5f5f5);}
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 
 /* ======================= Blinking cursor ======================= */
-.cursor{
-  display:inline-block;
-  position:relative;
-  top:-0.15em;
-  animation: blink 0.8s infinite;
-}
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
-}
+.cursor{display:inline-block;position:relative;top:-0.15em;animation: blink 0.8s infinite;}
+@keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
 
 /* ======================= Hero Buttons ======================= */
-.hero-buttons .btn{
-  display:inline-block;
-  padding:10px 18px;
-  margin:6px;
-  border-radius:6px;
-  background:var(--primary);
-  color:#fff;
-  border:1px solid var(--primary);
-  text-decoration:none;
-  transition:all 0.25s;
-}
-.hero-buttons .btn:hover{
-  transform:translateY(-3px);
-  background:#333;
-  color:#fff;
-  border-color:#333;
-}
+.hero-buttons .btn{display:inline-block;padding:10px 18px;margin:6px;border-radius:6px;background:var(--primary);color:#fff;border:1px solid var(--primary);text-decoration:none;transition:all 0.25s;}
+.hero-buttons .btn:hover{transform:translateY(-3px);background:#333;color:#fff;border-color:#333;}
 .hero-buttons{margin-bottom:30px;}
 
 /* ======================= Hero Socials ======================= */
-.hero-socials{
-  margin-top:16px;
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.hero-socials .social{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  font-size:14px;
-  text-decoration:none;
-  transition:transform .18s,filter .18s;
-}
+.hero-socials{margin-top:16px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.hero-socials .social{display:flex;flex-direction:column;align-items:center;font-size:14px;text-decoration:none;transition:transform .18s,filter .18s;}
 .hero-socials .social i{font-size:30px; transition:color .3s;}
 .hero-socials .social:hover{transform:translateY(-4px);filter:brightness(.95);}
-.hero-socials .icon-name{
-  margin-top:4px;
-  font-size:12px;
-  font-weight:500;
-  text-align:center;
-  color:var(--primary);
-}
+.hero-socials .icon-name{margin-top:4px;font-size:12px;font-weight:500;text-align:center;color:var(--primary);}
 /* Brand Colors */
 .social.linkedin i{color:#0A66C2;}
 .social.github i{color:#181717;}
@@ -172,146 +74,37 @@ body.dark .social i{color:#fff;}
 body.dark .hero-socials .icon-name{color:#fff;}
 
 /* ======================= Sections ======================= */
-.section{
-  max-width:1200px;
-  margin:80px auto;
-  padding:0 20px;
-}
+.section{max-width:1200px;margin:80px auto;padding:0 20px;}
 .section h2{text-align:center;margin-bottom:20px;font-size:1.9rem;}
-.section p{
-  margin-bottom:20px;
-  line-height:1.7;
-  font-size:clamp(14px,1.6vw,17px);
-  text-align:justify;
-}
+.section p{margin-bottom:20px;line-height:1.7;font-size:clamp(14px,1.6vw,17px);text-align:justify;}
 
-/* ======================= Cards Grid (OLD WORKING VERSION) ======================= */
-.cards-container{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  align-items:start;
-}
-.card{
-  background:var(--card);
-  padding:18px;
-  border-radius:10px;
-  border:1px solid var(--card-border-light);
-  box-shadow:0 6px 16px rgba(0,0,0,0.06);
-  transition:transform .28s,box-shadow .28s,background .28s,color .28s,border .28s;
-  color:var(--text);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  align-items: stretch;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 28px rgba(0,0,0,0.12);
-  background:#e6e6e6;
-}
+/* ======================= Cards Grid ======================= */
+.cards-container{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start;}
+.card{background:var(--card);padding:18px;border-radius:10px;border:1px solid var(--card-border-light);box-shadow:0 6px 16px rgba(0,0,0,0.06);transition:transform .28s,box-shadow .28s,background .28s,color .28s,border .28s;color:var(--text);display:flex;flex-direction:column;justify-content:space-between;align-items: stretch;}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.12);background:#e6e6e6;}
 .card h3{margin:0;font-size:1.1rem;}
-.card-link{
-  display:inline;
-  font-weight:700;
-  color:var(--primary);
-  text-decoration:none;
-  margin-top:6px;
-  align-self:flex-start;
-}
-/* Skills cards center text */
+.card-link{display:inline;font-weight:700;color:var(--primary);text-decoration:none;margin-top:6px;align-self:flex-start;}
 .skills-container .card{text-align:center;font-weight:700;}
 
 /* ======================= Contact Form ======================= */
-#contact-form{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  max-width:620px;
-  margin:0 auto;
-  text-align:center;
-}
-#contact-form input,#contact-form textarea{
-  padding:10px 12px;
-  border-radius:6px;
-  border:1px solid #cfcfcf;
-  background:transparent;
-  color:inherit;
-}
-#contact-form button{
-  padding:10px 14px;
-  border-radius:6px;
-  border:1px solid var(--primary);
-  background:var(--primary);
-  color:#fff;
-  cursor:pointer;
-  transition:all 0.25s;
-}
-#contact-form button:hover{
-  transform:translateY(-3px);
-  background:#333;
-  border-color:#333;
-}
+#contact-form{display:flex;flex-direction:column;gap:12px;max-width:620px;margin:0 auto;text-align:center;}
+#contact-form input,#contact-form textarea{padding:10px 12px;border-radius:6px;border:1px solid #cfcfcf;background:transparent;color:inherit;}
+#contact-form button{padding:10px 14px;border-radius:6px;border:1px solid var(--primary);background:var(--primary);color:#fff;cursor:pointer;transition:all 0.25s;}
+#contact-form button:hover{transform:translateY(-3px);background:#333;border-color:#333;}
 
 /* Form Status & Spinner & Arrow */
-#form-status{
-  text-align:center;
-  font-weight:600;
-  margin-top:6px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-}
-.spinner{
-  display:inline-block;
-  width:16px;
-  height:16px;
-  border:2px solid currentColor;
-  border-top-color:transparent;
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-  vertical-align:middle;
-}
+#form-status{text-align:center;font-weight:600;margin-top:6px;display:flex;justify-content:center;align-items:center;gap:8px;}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;}
 @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-#form-status .arrow, #form-status .message-text{
-  display:inline-block;
-  opacity:1;
-  animation:disappear 5s forwards;
-}
-@keyframes disappear{
-  0% {opacity:1;}
-  95% {opacity:1;}
-  100% {opacity:0;}
-}
+#form-status .arrow, #form-status .message-text{display:inline-block;opacity:1;animation:disappear 5s forwards;}
+@keyframes disappear{0% {opacity:1;}95% {opacity:1;}100% {opacity:0;}}
 
 /* ======================= Footer ======================= */
-footer{
-  text-align:center;
-  padding:18px 10px;
-  margin-top:40px;
-  background:transparent;
-  color:inherit;
-}
+footer{text-align:center;padding:18px 10px;margin-top:40px;background:transparent;color:inherit;}
 .footer-links a{color:inherit;text-decoration:none;margin:0 6px;}
 
 /* ======================= Back-to-top ======================= */
-#back-to-top{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  display:none;
-  background:var(--primary);
-  color:#fff;
-  border:1px solid var(--primary);
-  padding:10px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:22px;
-  line-height:1;
-  z-index:2000;
-  transition:all 0.25s;
-}
+#back-to-top{position:fixed;right:18px;bottom:18px;display:none;background:var(--primary);color:#fff;border:1px solid var(--primary);padding:10px 12px;border-radius:8px;cursor:pointer;font-size:22px;line-height:1;z-index:2000;transition:all 0.25s;}
 #back-to-top:hover{background:#333;color:#fff;border-color:#333;}
 
 /* ======================= Dark Mode ======================= */
@@ -329,34 +122,13 @@ body.dark .hero-content p{color:rgba(255,255,255,0.85);}
 body.dark .cursor{background:var(--text);}
 body.dark .card{border:1px solid var(--card-border-light);}
 body.dark .card:hover{background:#2a2a2a;}
-body.dark .hero-buttons .btn,
-body.dark #contact-form button,
-body.dark #back-to-top{
-  background:#111;color:#fff;border:1px solid #fff;
-}
-body.dark .hero-buttons .btn:hover,
-body.dark #contact-form button:hover,
-body.dark #back-to-top:hover{
-  background:#333;color:#fff;border-color:#fff;
-}
+body.dark .hero-buttons .btn, body.dark #contact-form button, body.dark #back-to-top{background:#111;color:#fff;border:1px solid #fff;}
+body.dark .hero-buttons .btn:hover, body.dark #contact-form button:hover, body.dark #back-to-top:hover{background:#333;color:#fff;border-color:#fff;}
 
 /* ======================= Responsive ======================= */
-@media(max-width:1024px){
-  .section, footer{max-width:95%; padding:0 16px;}
-  .section p{margin-bottom:18px; line-height:1.65;}
-}
+@media(max-width:1024px){.section, footer{max-width:95%; padding:0 16px;}.section p{margin-bottom:18px; line-height:1.65;}}
 @media(max-width:768px){
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:64px;
-    right:14px;
-    background:var(--bg);
-    padding:12px;
-    border-radius:8px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.12);
-    width:220px;
-  }
+  .nav-links{display:none;position:absolute;top:64px;right:14px;background:var(--bg);padding:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);width:220px;}
   .nav-links.active{display:flex;flex-direction:column;gap:10px;}
   .hamburger{display:inline-block;}
   .controls{gap:8px;}
@@ -372,23 +144,9 @@ body.dark #back-to-top:hover{
 }
 
 /* ======================= About & Footer Centering ======================= */
-#about p, footer p{
-  max-width:1200px;
-  margin:0 auto 20px auto;
-  text-align:justify;
-  line-height:1.7;
-  font-size:clamp(14px,1.6vw,17px);
-}
+#about p, footer p{max-width:1200px;margin:0 auto 20px auto;text-align:justify;line-height:1.7;font-size:clamp(14px,1.6vw,17px);}
 
 /* ======================= Cards for Education & Experience Sections ======================= */
-.education-container, .experience-container{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  align-items:start;
-  margin-bottom:40px;
-}
-.education-container .card, .experience-container .card{
-  text-align:left;
-}
+.education-container, .experience-container{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:start;margin-bottom:40px;}
+.education-container .card, .experience-container .card{text-align:left;}
 .skills-container .card{text-align:center;font-weight:700;}
