@@ -101,12 +101,12 @@ nav{
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 
-/* Hero blinking typing cursor */
+/* Blinking cursor */
 .cursor{
   display:inline;
   position:relative;
   top:-0.15em;
-  animation: blink 0.8s infinite;
+  animation: blink 0.6s infinite;
 }
 @keyframes blink{
   0%,50%,100%{opacity:1;}
@@ -169,10 +169,21 @@ nav{
 body.dark .social i{color:#fff;}
 body.dark .hero-socials .icon-name{color:#fff;}
 
-/* ======================= Sections & Cards ======================= */
-.section{max-width:1200px;margin:80px auto;padding:0 20px;}
+/* ======================= Sections ======================= */
+.section{
+  max-width:1200px;
+  margin:80px auto;
+  padding:0 20px;
+}
 .section h2{text-align:center;margin-bottom:20px;font-size:1.9rem;}
+.section p{
+  margin-bottom:20px;
+  line-height:1.7;
+  font-size:clamp(14px,1.6vw,17px);
+  text-align:justify;
+}
 
+/* ======================= Cards Grid (OLD WORKING) ======================= */
 .cards-container{
   display:grid;
   gap:20px;
@@ -190,9 +201,13 @@ body.dark .hero-socials .icon-name{color:#fff;}
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  align-items: stretch;
+  align-items:stretch;
 }
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(0,0,0,0.12);background:#e6e6e6;}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+  background:#e6e6e6;
+}
 .card h3{margin:0;font-size:1.1rem;}
 .card-link{
   display:inline;
@@ -202,7 +217,6 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin-top:6px;
   align-self:flex-start;
 }
-/* Skills cards center text */
 .skills-container .card{text-align:center;font-weight:700;}
 
 /* ======================= Contact Form ======================= */
@@ -236,7 +250,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   border-color:#333;
 }
 
-/* Form status & Spinner */
+/* Form Status & Spinner & Arrow */
 #form-status{
   text-align:center;
   font-weight:600;
@@ -257,45 +271,26 @@ body.dark .hero-socials .icon-name{color:#fff;}
   vertical-align:middle;
 }
 @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+#form-status .arrow, #form-status .message-text{
+  display:inline-block;
+  opacity:1;
+  animation:disappear 5s forwards;
+}
+@keyframes disappear{
+  0% {opacity:1;}
+  95% {opacity:1;}
+  100% {opacity:0;}
+}
 
-/* ======================= Dark Mode ======================= */
-body.dark{
-  --bg:#121212;
-  --text:#f5f5f5;
-  --muted:#1f1f1f;
-  --card:#1f1f1f;
-  --primary:#fff;
-  --card-border-light:#fff;
+/* ======================= Footer ======================= */
+footer{
+  text-align:center;
+  padding:18px 10px;
+  margin-top:40px;
+  background:transparent;
+  color:inherit;
 }
-body.dark nav{background:rgba(28,28,28,0.98);box-shadow:0 2px 8px rgba(0,0,0,0.5);}
-body.dark .hero{background:linear-gradient(180deg,#121212,#121212);}
-body.dark .hero-content p{color:rgba(255,255,255,0.85);}
-body.dark .cursor{background:var(--text);}
-body.dark .card{border:1px solid var(--card-border-light);}
-body.dark .card:hover{background:#2a2a2a;}
-body.dark .hero-buttons .btn,
-body.dark #contact-form button,
-body.dark #back-to-top{background:#111;color:#fff;border:1px solid #fff;}
-body.dark .hero-buttons .btn:hover,
-body.dark #contact-form button:hover,
-body.dark #back-to-top:hover{background:#333;color:#fff;border-color:#fff;}
-
-/* ======================= Responsive ======================= */
-@media(max-width:1024px){
-  .section, footer{max-width:95%;padding:0 16px;}
-}
-@media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:64px;right:14px;background:var(--bg);padding:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);width:220px;}
-  .nav-links.active{display:flex;flex-direction:column;gap:10px;}
-  .hamburger{display:inline-block;}
-  .controls{gap:8px;}
-  .hero{padding-top:110px;}
-}
-@media(min-width:769px){
-  .cards-container{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
-  .hero{min-height:100vh;padding-top:120px;padding-bottom:40px;}
-  .hero-buttons{margin-bottom:30px;}
-}
+.footer-links a{color:inherit;text-decoration:none;margin:0 6px;}
 
 /* ======================= Back-to-top ======================= */
 #back-to-top{
@@ -316,10 +311,58 @@ body.dark #back-to-top:hover{background:#333;color:#fff;border-color:#fff;}
 }
 #back-to-top:hover{background:#333;color:#fff;border-color:#333;}
 
-/* ======================= Summary & Footer (UNCHANGED) ======================= */
-footer p, #about p { 
-  max-width: 100%; 
-  word-wrap: break-word; 
-  text-align: center; 
-  font-size: clamp(14px, 1.6vw, 17px);
+/* ======================= Dark Mode ======================= */
+body.dark{
+  --bg:#121212;
+  --text:#f5f5f5;
+  --muted:#1f1f1f;
+  --card:#1f1f1f;
+  --primary:#fff;
+  --card-border-light:#fff;
+}
+body.dark nav{background:rgba(28,28,28,0.98);box-shadow:0 2px 8px rgba(0,0,0,0.5);}
+body.dark .hero{background:linear-gradient(180deg,#121212,#121212);}
+body.dark .hero-content p{color:rgba(255,255,255,0.85);}
+body.dark .cursor{background:var(--text);}
+body.dark .card{border:1px solid var(--card-border-light);}
+body.dark .card:hover{background:#2a2a2a;}
+body.dark .hero-buttons .btn,
+body.dark #contact-form button,
+body.dark #back-to-top{
+  background:#111;color:#fff;border:1px solid #fff;
+}
+body.dark .hero-buttons .btn:hover,
+body.dark #contact-form button:hover,
+body.dark #back-to-top:hover{
+  background:#333;color:#fff;border-color:#fff;
+}
+
+/* ======================= Responsive ======================= */
+@media(max-width:1024px){
+  .section, footer{max-width:95%; padding:0 16px;}
+  .section p{margin-bottom:18px; line-height:1.65;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;right:14px;background:var(--bg);padding:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);width:220px;}
+  .nav-links.active{display:flex;flex-direction:column;gap:10px;}
+  .hamburger{display:inline-block;}
+  .controls{gap:8px;}
+  .hero{padding-top:110px;}
+  .section, footer{max-width:100%; padding:0 12px;}
+  .section p{line-height:1.6; margin-bottom:16px; font-size:clamp(13px,2.2vw,15px);}
+  footer p{font-size:14px;}
+}
+@media(max-width:480px){
+  .section, footer{
+    max-width:100%;
+    padding:0 8px;
+  }
+  .section p{
+    line-height:1.75;
+    margin-bottom:14px;
+    font-size:13px;
+  }
+  footer p{
+    font-size:14px;
+  }
 }
