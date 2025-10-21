@@ -1,5 +1,6 @@
 /* ======================= Reset & Base ======================= */
 * { margin:0; padding:0; box-sizing:border-box; }
+
 :root{
   --bg:#ffffff;
   --text:#111;
@@ -10,6 +11,7 @@
   --card-border-light:#000;
   --card-border-dark:#fff;
 }
+
 html,body { height:100%; }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -101,9 +103,9 @@ nav{
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
 
-/* Blinking cursor */
+/* ======================= Blinking cursor ======================= */
 .cursor{
-  display:inline;
+  display:inline-block;
   position:relative;
   top:-0.15em;
   animation: blink 0.8s infinite;
@@ -113,7 +115,7 @@ nav{
   25%,75%{opacity:0;}
 }
 
-/* Hero Buttons */
+/* ======================= Hero Buttons ======================= */
 .hero-buttons .btn{
   display:inline-block;
   padding:10px 18px;
@@ -133,7 +135,7 @@ nav{
 }
 .hero-buttons{margin-bottom:30px;}
 
-/* Hero Socials */
+/* ======================= Hero Socials ======================= */
 .hero-socials{
   margin-top:16px;
   display:flex;
@@ -183,7 +185,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   text-align:justify;
 }
 
-/* ======================= Cards Grid (OLD CODE CARDS) ======================= */
+/* ======================= Cards Grid (OLD WORKING VERSION) ======================= */
 .cards-container{
   display:grid;
   gap:20px;
@@ -217,7 +219,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin-top:6px;
   align-self:flex-start;
 }
-/* Skills cards center text exactly as old working code */
+/* Skills cards center text */
 .skills-container .card{text-align:center;font-weight:700;}
 
 /* ======================= Contact Form ======================= */
@@ -343,7 +345,6 @@ body.dark #back-to-top:hover{
   .section, footer{max-width:95%; padding:0 16px;}
   .section p{margin-bottom:18px; line-height:1.65;}
 }
-
 @media(max-width:768px){
   .nav-links{
     display:none;
@@ -361,22 +362,33 @@ body.dark #back-to-top:hover{
   .controls{gap:8px;}
   .hero{padding-top:110px;}
   .section, footer{max-width:100%; padding:0 12px;}
-  .section p{
-    line-height:1.6;
-    margin-bottom:16px;
-    font-size:clamp(13px,2.2vw,15px);
-  }
+  .section p{line-height:1.6; margin-bottom:16px; font-size:clamp(13px,2.2vw,15px);}
   footer p{font-size:14px;}
 }
-
 @media(max-width:480px){
   .section, footer{max-width:100%; padding:0 8px;}
-  .section p{
-    line-height:1.75;
-    margin-bottom:14px;
-    font-size:13px;
-  }
+  .section p{line-height:1.75; margin-bottom:14px; font-size:13px;}
   footer p{font-size:14px;}
 }
 
-/* ======================= End of CSS ======================= */
+/* ======================= About & Footer Centering ======================= */
+#about p, footer p{
+  max-width:1200px;
+  margin:0 auto 20px auto;
+  text-align:justify;
+  line-height:1.7;
+  font-size:clamp(14px,1.6vw,17px);
+}
+
+/* ======================= Cards for Education & Experience Sections ======================= */
+.education-container, .experience-container{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  align-items:start;
+  margin-bottom:40px;
+}
+.education-container .card, .experience-container .card{
+  text-align:left;
+}
+.skills-container .card{text-align:center;font-weight:700;}
