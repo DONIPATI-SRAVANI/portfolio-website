@@ -92,10 +92,12 @@ nav{
 .hero{
   min-height:100vh;
   display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:120px 20px 0;
-  text-align:center;
+  flex-direction:column;          /* old code style */
+  justify-content:center;          /* vertical centering */
+  align-items:center;              /* horizontal centering */
+  padding-top:120px;               /* same as old code */
+  padding-bottom:40px;             /* match old spacing */
+  text-align:center;               /* ensure hero typing line centered */
   background:linear-gradient(180deg,#fafafa,#f5f5f5);
 }
 .hero-content h1{font-size:2.4rem;margin-bottom:10px;}
@@ -213,7 +215,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   align-self:flex-start;
 }
 
-/* Experience & Education cards – same as old code */
+/* Experience & Education cards - exact old alignment */
 .experience-container .card,
 .education-container .card{
   text-align:left;
