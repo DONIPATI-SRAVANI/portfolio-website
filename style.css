@@ -158,7 +158,6 @@ nav{
   text-align:center;
   color:var(--primary);
 }
-/* Brand Colors */
 .social.linkedin i{color:#0A66C2;}
 .social.github i{color:#181717;}
 .social.hackerrank i{color:#2EC866;}
@@ -213,6 +212,35 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin-top:6px;
   align-self:flex-start;
 }
+
+/* Experience & Education cards – same as old code */
+.experience-container .card,
+.education-container .card{
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
+}
+.experience-container .card h3,
+.education-container .card h3{
+  margin-bottom:8px;
+  font-size:1.1rem;
+  font-weight:700;
+}
+.experience-container .card p,
+.education-container .card p{
+  flex-grow:1;
+  margin-bottom:10px;
+  text-align:justify;
+}
+.experience-container .card .card-link,
+.education-container .card .card-link{
+  margin-top:auto;
+  font-weight:700;
+  align-self:flex-start;
+}
+
 /* Skills cards center text */
 .skills-container .card{text-align:center;font-weight:700;}
 
@@ -268,6 +296,8 @@ body.dark .hero-socials .icon-name{color:#fff;}
   vertical-align:middle;
 }
 @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+/* Disappear animation for status messages */
 #form-status .arrow, #form-status .message-text{
   display:inline-block;
   opacity:1;
@@ -288,6 +318,12 @@ footer{
   color:inherit;
 }
 .footer-links a{color:inherit;text-decoration:none;margin:0 6px;}
+footer p{
+  max-width:100%;
+  word-wrap:break-word;
+  text-align:center;
+  font-size:clamp(14px,1.6vw,17px);
+}
 
 /* ======================= Back-to-top ======================= */
 #back-to-top{
