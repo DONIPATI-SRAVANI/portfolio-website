@@ -106,7 +106,7 @@ nav{
   display:inline;
   position:relative;
   top:-0.15em;
-  animation: blink 0.6s infinite;
+  animation: blink 0.8s infinite;
 }
 @keyframes blink{
   0%,50%,100%{opacity:1;}
@@ -183,7 +183,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   text-align:justify;
 }
 
-/* ======================= Cards Grid (OLD WORKING) ======================= */
+/* ======================= Cards Grid (OLD CODE CARDS) ======================= */
 .cards-container{
   display:grid;
   gap:20px;
@@ -201,7 +201,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  align-items:stretch;
+  align-items: stretch;
 }
 .card:hover{
   transform:translateY(-6px);
@@ -217,6 +217,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin-top:6px;
   align-self:flex-start;
 }
+/* Skills cards center text exactly as old working code */
 .skills-container .card{text-align:center;font-weight:700;}
 
 /* ======================= Contact Form ======================= */
@@ -342,27 +343,40 @@ body.dark #back-to-top:hover{
   .section, footer{max-width:95%; padding:0 16px;}
   .section p{margin-bottom:18px; line-height:1.65;}
 }
+
 @media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:64px;right:14px;background:var(--bg);padding:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);width:220px;}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:64px;
+    right:14px;
+    background:var(--bg);
+    padding:12px;
+    border-radius:8px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+    width:220px;
+  }
   .nav-links.active{display:flex;flex-direction:column;gap:10px;}
   .hamburger{display:inline-block;}
   .controls{gap:8px;}
   .hero{padding-top:110px;}
   .section, footer{max-width:100%; padding:0 12px;}
-  .section p{line-height:1.6; margin-bottom:16px; font-size:clamp(13px,2.2vw,15px);}
+  .section p{
+    line-height:1.6;
+    margin-bottom:16px;
+    font-size:clamp(13px,2.2vw,15px);
+  }
   footer p{font-size:14px;}
 }
+
 @media(max-width:480px){
-  .section, footer{
-    max-width:100%;
-    padding:0 8px;
-  }
+  .section, footer{max-width:100%; padding:0 8px;}
   .section p{
     line-height:1.75;
     margin-bottom:14px;
     font-size:13px;
   }
-  footer p{
-    font-size:14px;
-  }
+  footer p{font-size:14px;}
 }
+
+/* ======================= End of CSS ======================= */
