@@ -163,21 +163,8 @@ nav {
   color: rgba(0, 0, 0, 0.75);
 }
 
-/* Slim blinking cursor perfectly aligned with text */
-.cursor {
-  display: inline;             /* part of text flow */
-  position: relative;          /* for vertical adjustment */
-  top: 0;                      /* align with text baseline */
-  border-right: 1px solid var(--text); /* thin vertical line */
-  animation: blink 0.8s infinite;
-  height: 1em;                 /* exactly text height */
-  vertical-align: text-bottom; /* ensures it sits nicely on baseline */
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
+.cursor { display:inline; animation:blink 0.8s infinite; color:currentColor; }
+@keyframes blink { 0%,50%,100%{opacity:1} 25%,75%{opacity:0} }
 
 /* Hero Buttons */
 .hero-buttons .btn {
@@ -631,6 +618,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
