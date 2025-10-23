@@ -12,7 +12,7 @@
   --card-border-dark:#fff;
 }
 
-html, body { height:100%; }
+html,body { height:100%; }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -21,6 +21,8 @@ body {
   line-height:1.5;
   scroll-behavior:smooth;
   text-decoration:none;
+  width:98%; /* Page width 98% */
+  margin:0 auto;
 }
 
 /* ======================= Navigation ======================= */
@@ -33,6 +35,7 @@ nav{
   background:rgba(249,249,249,0.98);
   box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
+
 .nav-container{
   max-width:1200px;
   margin:0 auto;
@@ -42,13 +45,16 @@ nav{
   padding:10px 20px;
   gap:10px;
 }
+
 .logo{font-weight:700;font-size:1.15rem;}
+
 .nav-links{
   display:flex;
   gap:18px;
   list-style:none;
   align-items:center;
 }
+
 .nav-links li a{
   position:relative;
   color:inherit;
@@ -56,6 +62,7 @@ nav{
   transition:color .25s;
   text-decoration:none;
 }
+
 .nav-links li a::after{
   content:"";
   position:absolute;
@@ -66,13 +73,20 @@ nav{
   background:currentColor;
   transition:width .25s;
 }
+
 .nav-links li a:hover::after{width:100%;}
 
 /* Controls (theme/hamburger) */
 .controls{display:flex;align-items:center;gap:12px;}
+
 .switch{position:relative;width:50px;height:24px;display:inline-block;}
 .switch input{display:none;}
-.slider{position:absolute;inset:0;background:#ccc;border-radius:34px;transition:background .25s;}
+.slider{
+  position:absolute; inset:0;
+  background:#ccc;
+  border-radius:34px;
+  transition:background .25s;
+}
 .slider::before{
   content:"";
   position:absolute;
@@ -88,8 +102,23 @@ nav{
 .switch input:checked + .slider::before{transform:translateX(26px);}
 
 /* Hamburger - mobile only */
-.hamburger{display:none;width:36px;height:30px;border:0;background:transparent;cursor:pointer;padding:0;}
-.hamburger span{display:block;height:3px;background:var(--text);margin:5px 0;border-radius:3px;transition:all .25s;}
+.hamburger{
+  display:none;
+  width:36px;
+  height:30px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  padding:0;
+}
+.hamburger span{
+  display:block;
+  height:3px;
+  background:var(--text);
+  margin:5px 0;
+  border-radius:3px;
+  transition:all .25s;
+}
 
 /* ======================= Hero ======================= */
 .hero{
@@ -100,33 +129,29 @@ nav{
   padding:120px 20px 0;
   text-align:center;
   background:linear-gradient(180deg,#fafafa,#f5f5f5);
+  width:98%;
+  margin:0 auto;
 }
 
-/* ================= Hero Typing Text Center Fix ================= */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 10px;
+.hero-content h1{
+  font-size:2.4rem;
+  margin-bottom:10px;
+  text-align:center;
 }
 
-.hero-content h1{font-size:2.4rem;margin-bottom:10px;}
-.hero-content p{font-size:1.1rem;margin-bottom:18px;color:rgba(0,0,0,0.75);}
+.hero-content p{
+  font-size:1.1rem;
+  margin-bottom:18px;
+  color:rgba(0,0,0,0.75);
+  text-align:center;
+}
 
 /* Blinking cursor */
 .cursor{
-  display:inline-block;
+  display:inline;
   position:relative;
-  top:0;
-  margin-left:2px;
-  width:2px;
-  height:1em;
-  background-color:var(--text);
-  animation:blink 0.8s infinite;
+  top:-0.15em;
+  animation: blink 0.8s infinite;
 }
 @keyframes blink{
   0%,50%,100%{opacity:1;}
@@ -169,8 +194,14 @@ nav{
   text-decoration:none;
   transition:transform .18s,filter .18s;
 }
-.hero-socials .social i{font-size:30px; transition:color .3s;}
-.hero-socials .social:hover{transform:translateY(-4px);filter:brightness(.95);}
+.hero-socials .social i{
+  font-size:30px;
+  transition:color .3s;
+}
+.hero-socials .social:hover{
+  transform:translateY(-4px);
+  filter:brightness(.95);
+}
 .hero-socials .icon-name{
   margin-top:4px;
   font-size:12px;
@@ -189,38 +220,31 @@ nav{
 body.dark .social i{color:#fff;}
 body.dark .hero-socials .icon-name{color:#fff;}
 
-/* Responsive hero text */
-@media(max-width:768px){
-  .hero-content h1 { font-size:1.8rem; }
-  .hero-content p { font-size:1rem; }
-}
-@media(max-width:480px){
-  .hero-content h1 { font-size:1.6rem; }
-  .hero-content p { font-size:0.95rem; }
-}
 /* ======================= Sections ======================= */
 .section{
   max-width:1200px;
   margin:80px auto;
   padding:0 20px;
 }
-.section h2{text-align:center;margin-bottom:20px;font-size:1.9rem;}
+.section h2{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:1.9rem;
+}
 .section p{
   margin-bottom:20px;
   line-height:1.7;
   font-size:clamp(14px,1.6vw,17px);
   text-align:justify;
-  word-spacing: 0.05em; /* clean word spacing */
-  letter-spacing: normal; /* prevent extra spacing */
 }
-
 /* ======================= Cards Grid ======================= */
 .cards-container{
   display:grid;
   gap:20px;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  align-items:stretch;
+  align-items:start;
 }
+
 .card{
   background:var(--card);
   padding:18px;
@@ -233,60 +257,47 @@ body.dark .hero-socials .icon-name{color:#fff;}
   flex-direction:column;
   justify-content:space-between;
   align-items:stretch;
-  word-spacing: 0.05em; /* neat word spacing */
+  word-spacing: normal;
   letter-spacing: normal;
+  text-align:justify;
 }
+
 .card:hover{
   transform:translateY(-6px);
   box-shadow:0 12px 28px rgba(0,0,0,0.12);
   background:#e6e6e6;
 }
 
-/* Card content */
 .card h3{
-  margin:0 0 8px 0;
+  margin:0 0 10px 0;
   font-size:1.1rem;
-  line-height:1.3;
-}
-.card p{
-  margin-bottom:12px;
-  line-height:1.5;
-  word-spacing:0.05em;
-  letter-spacing:normal;
+  line-height:1.4;
 }
 
-/* Card link at bottom, only clickable text */
+.card p{
+  flex:1 1 auto;
+  margin-bottom:12px;
+  word-spacing: normal;
+  letter-spacing: normal;
+  text-align:justify;
+}
+
 .card-link{
   display:inline-block;
   font-weight:700;
   color:var(--primary);
   text-decoration:none;
-  align-self:flex-start;
-  margin-top:auto; /* attach to bottom of card */
-  cursor:pointer;
+  margin-top:auto; /* align at bottom of card */
 }
-.card-link:hover{text-decoration:underline;}
+
+.card-link:hover{
+  text-decoration:underline;
+}
 
 /* Skills cards */
 .skills-container .card{
   text-align:center;
   font-weight:700;
-  justify-content:center;
-}
-
-/* Make all cards in section same height based on tallest */
-.cards-container{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  align-items:stretch;
-}
-.card{
-  display:flex;
-  flex-direction:column;
-}
-.cards-container .card{
-  min-height: 100%;
 }
 
 /* ======================= Contact Form ======================= */
@@ -298,6 +309,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin:0 auto;
   text-align:center;
 }
+
 #contact-form input,#contact-form textarea{
   padding:10px 12px;
   border-radius:6px;
@@ -305,6 +317,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   background:transparent;
   color:inherit;
 }
+
 #contact-form button{
   padding:10px 14px;
   border-radius:6px;
@@ -314,13 +327,14 @@ body.dark .hero-socials .icon-name{color:#fff;}
   cursor:pointer;
   transition:all 0.25s;
 }
+
 #contact-form button:hover{
   transform:translateY(-3px);
   background:#333;
   border-color:#333;
 }
 
-/* Form Status & Spinner */
+/* Form Status & Spinner & Arrow */
 #form-status{
   text-align:center;
   font-weight:600;
@@ -330,6 +344,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   align-items:center;
   gap:8px;
 }
+
 .spinner{
   display:inline-block;
   width:16px;
@@ -341,33 +356,44 @@ body.dark .hero-socials .icon-name{color:#fff;}
   vertical-align:middle;
   margin-right:6px;
 }
-@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-#form-status .arrow, #form-status .message-text{
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+#form-status .arrow,#form-status .message-text{
   display:inline-block;
   opacity:1;
   animation:disappear 5s forwards;
 }
+
 @keyframes disappear{
   0% {opacity:1;}
   95% {opacity:1;}
   100% {opacity:0;}
 }
+
 /* ======================= Footer ======================= */
 footer{
   text-align:center;
   padding:18px 10px;
-  margin-top:60px; /* more space after footer */
+  margin-top:40px;
   background:transparent;
   color:inherit;
-  font-size:14px; /* smaller text in desktop */
-  line-height:1.6;
 }
+
 .footer-links a{
   color:inherit;
   text-decoration:none;
   margin:0 6px;
 }
-.footer-links a:hover{text-decoration:underline;}
+
+footer p{
+  font-size:12px; /* smaller in desktop */
+  margin-top:6px;
+  line-height:1.5;
+}
 
 /* ======================= Back-to-top ======================= */
 #back-to-top{
@@ -386,6 +412,7 @@ footer{
   z-index:2000;
   transition:all 0.25s;
 }
+
 #back-to-top:hover{
   background:#333;
   color:#fff;
@@ -401,25 +428,13 @@ body.dark{
   --primary:#fff;
   --card-border-light:#fff;
 }
-body.dark nav{
-  background:rgba(28,28,28,0.98);
-  box-shadow:0 2px 8px rgba(0,0,0,0.5);
-}
-body.dark .hero{
-  background:linear-gradient(180deg,#121212,#121212);
-}
-body.dark .hero-content p{
-  color:rgba(255,255,255,0.85);
-}
-body.dark .cursor{
-  background:var(--text);
-}
-body.dark .card{
-  border:1px solid var(--card-border-light);
-}
-body.dark .card:hover{
-  background:#2a2a2a;
-}
+
+body.dark nav{background:rgba(28,28,28,0.98); box-shadow:0 2px 8px rgba(0,0,0,0.5);}
+body.dark .hero{background:linear-gradient(180deg,#121212,#121212);}
+body.dark .hero-content p{color:rgba(255,255,255,0.85);}
+body.dark .cursor{background:var(--text);}
+body.dark .card{border:1px solid var(--card-border-light);}
+body.dark .card:hover{background:#2a2a2a;}
 body.dark .hero-buttons .btn,
 body.dark #contact-form button,
 body.dark #back-to-top{
@@ -442,7 +457,6 @@ body.dark #back-to-top:hover{
 }
 
 @media(max-width:768px){
-  /* Hamburger menu */
   .nav-links{
     display:none;
     position:absolute;
@@ -452,18 +466,15 @@ body.dark #back-to-top:hover{
     padding:12px;
     border-radius:8px;
     box-shadow:0 8px 24px rgba(0,0,0,0.12);
-    width:95%; /* mobile menu almost full width */
-    max-width:300px;
-    flex-direction:column;
-    gap:10px;
+    width:90%; /* smaller menu on mobile */
   }
-  .nav-links.active{display:flex;}
-  .hamburger{display:inline-block; cursor:pointer;}
+  .nav-links.active{display:flex;flex-direction:column;gap:10px;}
+  .hamburger{display:inline-block;}
   .controls{gap:8px;}
   .hero{padding-top:110px;}
   .section, footer{max-width:95%; padding:0 12px;}
   .section p{line-height:1.6; margin-bottom:16px; font-size:clamp(13px,2.2vw,15px);}
-  footer p{font-size:13px;}
+  footer p{font-size:12px;}
 }
 
 @media(max-width:480px){
@@ -471,27 +482,79 @@ body.dark #back-to-top:hover{
   .section p{line-height:1.75; margin-bottom:14px; font-size:13px;}
   footer p{font-size:12px;}
 }
-
-/* Hamburger icon as proper bars and toggle animation */
-.hamburger span{
-  display:block;
-  height:3px;
-  background:var(--text);
-  margin:5px 0;
-  border-radius:3px;
-  transition:all 0.25s;
-}
+/* ======================= Hamburger Menu Toggle ======================= */
 .hamburger.active span:nth-child(1){
-  transform:rotate(45deg) translate(5px, 5px);
+  transform:rotate(45deg) translate(6px, 6px);
 }
+
 .hamburger.active span:nth-child(2){
   opacity:0;
 }
+
 .hamburger.active span:nth-child(3){
   transform:rotate(-45deg) translate(6px, -6px);
 }
 
-/* Hero text always centered in middle */
+/* ======================= Education & Experience Cards ======================= */
+.education-container, .experience-container{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+
+.education-container .card, .experience-container .card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:stretch;
+  min-height:1px; /* height adjusts based on highest card in section via JS if needed */
+}
+
+.education-container .card h3, .experience-container .card h3{
+  margin-bottom:10px;
+  font-size:1.1rem;
+  line-height:1.4;
+}
+
+.education-container .card p, .experience-container .card p{
+  margin-bottom:12px;
+  word-spacing: normal;
+  letter-spacing: normal;
+  text-align:justify;
+}
+
+/* ======================= Certificate Link Only Text Clickable ======================= */
+.card .card-link{
+  display:inline-block;
+  cursor:pointer;
+}
+
+.card .card-link:hover{
+  text-decoration:underline;
+}
+
+.card .card-link span{
+  pointer-events:none; /* ensures only text clickable, not extra padding */
+}
+
+/* ======================= Page Width & Footer Spacing Adjustments ======================= */
+body, html{
+  width:98%;
+  max-width:100%;
+  margin:0 auto;
+}
+
+footer{
+  margin-top:60px; /* extra spacing below footer */
+}
+
+/* ======================= Typing Text Center in Hero ======================= */
+.hero-content h1, .hero-content p{
+  display:inline-block;
+  text-align:center;
+  width:auto;
+}
+
 .hero-content{
   display:flex;
   flex-direction:column;
@@ -499,4 +562,49 @@ body.dark #back-to-top:hover{
   justify-content:center;
   text-align:center;
   width:100%;
+}
+
+/* ======================= Cards Text Fixes ======================= */
+.card p{
+  word-spacing:normal;
+  letter-spacing:normal;
+  text-align:justify;
+  hyphens:auto;
+  line-height:1.5;
+  overflow-wrap:break-word;
+}
+
+/* ======================= Skills & Certificates Adjustments ======================= */
+.skills-container .card{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.certificates-container .card-link{
+  display:inline-block;
+  margin-top:auto;
+  text-decoration:none;
+  color:var(--primary);
+}
+
+.certificates-container .card-link:hover{
+  text-decoration:underline;
+}
+
+/* ======================= Mobile & Desktop Adjustments ======================= */
+@media(max-width:768px){
+  body, html{width:95%;}
+  .nav-links{
+    width:90%;
+  }
+  .education-container, .experience-container{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(min-width:769px){
+  body, html{width:98%;}
+  .education-container, .experience-container{
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  }
 }
