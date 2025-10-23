@@ -779,31 +779,66 @@ footer p, .footer-links {
   margin-bottom: 8px;
 }
 
-/* ======================= Hamburger icon fix ======================= */
+
+
+
+
+
+
+
+/* ======================= Hamburger visibility & X transform ======================= */
+
+/* Hamburger visible only on mobile */
 .hamburger {
-  display: flex;               /* make it visible */
+  display: flex;               /* show in mobile */
   flex-direction: column;      /* stack bars */
   justify-content: space-between;
   width: 36px;
   height: 24px;
   cursor: pointer;
   z-index: 1500;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: relative;
 }
 
+/* Hamburger bars */
 .hamburger span {
-  display: block;              /* bars visible */
+  display: block;
   height: 3px;
-  width: 100%;                 /* full width */
-  background: var(--text);     /* contrast color */
+  width: 100%;
+  background: var(--text);
+  margin: 5px 0;
   border-radius: 3px;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+}
+
+/* Transform hamburger to X when menu is active */
+.nav-links.active + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-links.active + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-links.active + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Ensure hamburger stays hidden on desktop */
+@media(min-width:769px) {
+  .hamburger {
+    display: none;
+  }
 }
 
 /* ======================= Experience cards text fix ======================= */
 #experience .cards-container .card p {
   text-align: left;           /* start in same line */
-  word-spacing: normal;       /* default word spacing */
-  letter-spacing: normal;     /* default letter spacing */
+  word-spacing: normal;       /* normal word spacing */
+  letter-spacing: normal;     /* normal letter spacing */
   line-height: 1.5;           /* neat spacing */
   margin: 0 0 10px 0;         /* spacing below each paragraph */
 }
