@@ -164,6 +164,10 @@ nav {
 }
 
 .cursor {
+  display: inline;
+  position: relative;
+  top: -0.1em;               /* adjust vertical alignment */
+  color: currentColor;        /* inherit text color automatically */
   animation: blink 0.8s infinite;
 }
 
@@ -624,6 +628,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
