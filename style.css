@@ -374,6 +374,7 @@ body.dark .hero-socials .icon-name { color: #fff; }
   border: 1px solid #cfcfcf;
   background: transparent;
   color: inherit;
+  text-align: left;
 }
 
 #contact-form button {
@@ -640,6 +641,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
