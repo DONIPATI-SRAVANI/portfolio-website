@@ -503,31 +503,30 @@ footer p {
   border-color: #333;
 }
 
-/* ======================= Hamburger Icon Fix ======================= */
+/* ======================= Hamburger & Mobile Dropdown ======================= */
+
+/* Hamburger button */
 .hamburger {
-  display: none;               /* hidden by default, only mobile shows */
+  display: none;               /* hidden on desktop */
   flex-direction: column;
   justify-content: space-between;
   width: 36px;
   height: 24px;
   cursor: pointer;
-  background: transparent;     /* remove box background */
-  border: none;                /* remove border */
-  padding: 0;
-  position: relative;          /* stays in header layout */
-  z-index: 1500;
+  z-index: 1600;               /* above all content */
+  position: relative;
 }
 
 .hamburger span {
   display: block;
   height: 3px;
-  width: 100%;                 /* full width of container */
-  background: var(--text);     /* visible in both light/dark */
+  width: 100%;
+  background: var(--text);
   border-radius: 3px;
   transition: all 0.25s ease;
 }
 
-/* Toggle animation when active */
+/* Hamburger active - transform to X */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -538,18 +537,52 @@ footer p {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Show only on mobile */
-@media(max-width:768px) {
+/* Mobile nav-links dropdown */
+.nav-links {
+  display: none;               /* hidden by default */
+  position: absolute;
+  top: 60px;                   /* below header */
+  right: 16px;
+  background: var(--card);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 180px;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1500;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show dropdown when active */
+.nav-links.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Individual links inside dropdown */
+.nav-links li a {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.nav-links li a:hover {
+  background: var(--muted);
+  color: var(--primary);
+}
+
+/* Hamburger visible only on mobile */
+@media(max-width:768px){
   .hamburger {
     display: flex;
   }
   .nav-links {
-    display: none;              /* hidden by default */
-  }
-  .nav-links.active {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: none; /* default hidden on mobile */
   }
 }
 
@@ -802,5 +835,6 @@ body.dark #back-to-top:hover {
   letter-spacing: normal;
   line-height: 1.55;
 }
+
 
 
