@@ -135,12 +135,12 @@ nav {
 
 /* Add border to toggle slider */
 .slider {
-  border: 2px solid #000; /* default black in light mode */
+  border: 5px solid #000; /* default black in light mode */
 }
 
 /* Dark mode adjustment */
 body.dark .slider {
-  border: 2px solid #fff; /* white in dark mode */
+  border: 5px solid #fff; /* white in dark mode */
 }
 
 
@@ -640,3 +640,4 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
