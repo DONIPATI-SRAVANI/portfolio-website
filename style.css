@@ -163,8 +163,14 @@ nav {
   color: rgba(0, 0, 0, 0.75);
 }
 
-.cursor { display:inline; animation:blink 0.8s infinite; color:currentColor; }
-@keyframes blink { 0%,50%,100%{opacity:1} 25%,75%{opacity:0} }
+.cursor {
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
 
 /* Hero Buttons */
 .hero-buttons .btn {
@@ -618,6 +624,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
