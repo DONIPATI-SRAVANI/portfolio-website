@@ -55,6 +55,7 @@ nav {
   font-size: 1.15rem;
 }
 
+/* Desktop nav links */
 .nav-links {
   display: flex;
   gap: 18px;
@@ -92,43 +93,85 @@ nav {
   gap: 12px;
 }
 
-.switch {
-  position: relative;
-  width: 50px;
+/* ======================= Hamburger Icon ======================= */
+.hamburger {
+  display: none;               /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 36px;
   height: 24px;
-  display: inline-block;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 1500;
 }
 
-.switch input {
-  display: none;
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: var(--text);
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
-.slider {
-  position: absolute;
-  inset: 0;
-  background: #ccc;
-  border-radius: 34px;
-  transition: background 0.25s;
+/* Toggle animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.slider::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  bottom: 3px;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform 0.25s;
+/* ======================= Mobile Dropdown ======================= */
+@media(max-width:768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1400;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
-.switch input:checked + .slider {
-  background: #111;
+/* ======================= Dark Mode ======================= */
+body.dark {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --muted: #1f1f1f;
+  --card: #1f1f1f;
+  --primary: #fff;
+  --card-border-light: #fff;
 }
 
-.switch input:checked + .slider::before {
-  transform: translateX(26px);
+body.dark nav {
+  background: rgba(28,28,28,0.98);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark .hamburger span {
+  background: var(--text);
+}
+
+body.dark .nav-links {
+  background: var(--bg);
 }
 
 /* ======================= Hero Section ======================= */
@@ -161,23 +204,21 @@ nav {
   color: rgba(0, 0, 0, 0.75);
 }
 
-/* Blinking cursor - slim and centered */
+/* Blinking cursor */
 .cursor {
   display: inline-block;
-  width: 2px; /* slim */
+  width: 2px;
   height: 1.2em;
   background: var(--text);
-  vertical-align: bottom;
   margin-left: 2px;
   animation: blink 0.8s infinite;
 }
-
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
 
-/* Hero Buttons */
+/* Buttons */
 .hero-buttons .btn {
   display: inline-block;
   padding: 10px 18px;
@@ -189,19 +230,13 @@ nav {
   text-decoration: none;
   transition: all 0.25s;
 }
-
 .hero-buttons .btn:hover {
   transform: translateY(-3px);
   background: #333;
-  color: #fff;
   border-color: #333;
 }
 
-.hero-buttons {
-  margin-bottom: 30px;
-}
-
-/* Hero Socials */
+/* Social icons */
 .hero-socials {
   margin-top: 16px;
   display: flex;
@@ -209,68 +244,43 @@ nav {
   gap: 10px;
   flex-wrap: wrap;
 }
-
-.hero-socials .social {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
-  text-decoration: none;
-  transition: transform 0.18s, filter 0.18s;
-}
-
 .hero-socials .social i {
   font-size: 30px;
   transition: color 0.3s;
 }
-
-.hero-socials .social:hover {
-  transform: translateY(-4px);
-  filter: brightness(0.95);
+body.dark .hero-socials .social i {
+  color: #fff;
 }
 
-.hero-socials .icon-name {
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  text-align: center;
-  color: var(--primary);
-}
-
-/* Brand Colors */
-.social.linkedin i { color: #0A66C2; }
-.social.github i { color: #181717; }
-.social.hackerrank i { color: #2EC866; }
-.social.leetcode i { color: #FFA116; }
-.social.gcloud i { color: #4285F4; }
-.social.credly i { color: #f5a623; }
-.social.salesforce i { color: #00A1E0; }
-
-body.dark .social i { color: #fff; }
-body.dark .hero-socials .icon-name { color: #fff; }
-/* ======================= Sections & Cards ======================= */
+/* ======================= Sections ======================= */
 .section {
   max-width: 95%;
   margin: 80px auto;
   padding: 0 20px;
 }
-
 .section h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.9rem;
 }
-
 .section p {
   margin-bottom: 20px;
   line-height: 1.6;
   font-size: clamp(14px, 1.6vw, 16px);
   text-align: justify;
-  word-spacing: normal; /* ensures no stretched spacing */
+  word-spacing: normal;
   letter-spacing: normal;
 }
 
-/* ======================= Cards Grid ======================= */
+/* ======================= Experience ======================= */
+#experience .cards-container .card p {
+  text-align: left;
+  line-height: 1.5;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+
+/* ======================= Cards ======================= */
 .cards-container {
   display: grid;
   gap: 20px;
@@ -284,47 +294,31 @@ body.dark .hero-socials .icon-name { color: #fff; }
   border-radius: 10px;
   border: 1px solid var(--card-border-light);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-  transition: transform .28s, box-shadow .28s, background .28s, color .28s, border .28s;
-  color: var(--text);
+  transition: all .28s;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: stretch;
-  word-break: break-word; /* prevent stretching */
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  background: #e6e6e6;
 }
 
 .card h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.1rem;
+  margin-bottom: 8px;
 }
 
 .card p {
-  margin: 0 0 12px 0;
-  line-height: 1.5;
-  font-size: 0.95rem;
+  margin-bottom: 12px;
   text-align: justify;
-  word-spacing: normal; /* prevent stretched letters */
+  word-spacing: normal;
   letter-spacing: normal;
 }
 
-/* Links inside cards - only clickable on text */
 .card-link {
   display: inline-block;
   font-weight: 700;
   color: var(--primary);
   text-decoration: none;
-  margin-top: auto; /* attach near card base */
-  align-self: flex-start;
+  margin-top: auto;
   position: relative;
-  padding-bottom: 2px; /* for hover effect line */
 }
-
 .card-link::after {
   content: '';
   position: absolute;
@@ -335,116 +329,10 @@ body.dark .hero-socials .icon-name { color: #fff; }
   background-color: var(--primary);
   transition: width 0.3s ease;
 }
-
 .card-link:hover::after {
-  width: 100%; /* underline only under text */
+  width: 100%;
 }
 
-/* Skills cards center text */
-.skills-container .card {
-  text-align: center;
-  font-weight: 700;
-}
-
-/* ======================= Contact Form ======================= */
-#contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 620px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#contact-form input,
-#contact-form textarea {
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid #cfcfcf;
-  background: transparent;
-  color: inherit;
-}
-
-#contact-form button {
-  padding: 10px 14px;
-  border-radius: 6px;
-  border: 1px solid var(--primary);
-  background: var(--primary);
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-#contact-form button:hover {
-  transform: translateY(-3px);
-  background: #333;
-  border-color: #333;
-}
-
-/* Form Status & Spinner */
-#form-status {
-  text-align: center;
-  font-weight: 600;
-  margin-top: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-.spinner {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid currentColor;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-#form-status .arrow,
-#form-status .message-text {
-  display: inline-block;
-  opacity: 1;
-  animation: disappear 5s forwards;
-}
-
-@keyframes disappear {
-  0% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* ======================= Dark Mode Cards & Buttons ======================= */
-body.dark .card {
-  border: 1px solid var(--card-border-light);
-}
-
-body.dark .card:hover {
-  background: #2a2a2a;
-}
-
-body.dark .hero-buttons .btn,
-body.dark #contact-form button,
-body.dark #back-to-top {
-  background: #111;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-body.dark .hero-buttons .btn:hover,
-body.dark #contact-form button:hover,
-body.dark #back-to-top:hover {
-  background: #333;
-  color: #fff;
-  border-color: #fff;
-}
 /* ======================= Footer ======================= */
 footer {
   text-align: center;
@@ -460,23 +348,20 @@ footer p {
   max-width: 95%;
   margin: 0 auto;
   font-size: 14px;
-  word-wrap: break-word;
   text-align: center;
 }
 
 .footer-links {
   margin-top: 6px;
-  display: flex;          /* enables flex layout */
-  flex-wrap: wrap;        /* allows links to wrap neatly if needed */
-  justify-content: center;/* centers all links horizontally */
-  gap: 4px;               /* optional spacing between links */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
 }
-
 .footer-links a {
   color: inherit;
   text-decoration: none;
-  margin: 0;              /* remove horizontal margin */
-  padding: 0 4px;         /* optional spacing instead of margin */
+  padding: 0 4px;
 }
 
 /* ======================= Back-to-top ======================= */
@@ -496,99 +381,16 @@ footer p {
   z-index: 2000;
   transition: all 0.25s;
 }
-
 #back-to-top:hover {
   background: #333;
-  color: #fff;
   border-color: #333;
 }
 
-/* ======================= Hamburger Icon ======================= */
-.hamburger {
-  display: none;               /* hidden on desktop */
-  flex-direction: column;
-  justify-content: space-between;
-  width: 36px;
-  height: 24px;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  z-index: 1500;               /* ensure above nav dropdown */
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  background: var(--text);
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* ======================= Hamburger Toggle Animation ======================= */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* ======================= Mobile Only ======================= */
-@media(max-width:768px) {
-  .nav-links {
-    display: none;                /* hide nav links initially on mobile */
-    position: absolute;
-    top: 64px;
-    right: 16px;
-    background: var(--bg);
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    flex-direction: column;
-    gap: 12px;
-    z-index: 1400;                /* above other elements */
-  }
-
-  .nav-links.active {
-    display: flex;                /* show links when hamburger clicked */
-  }
-
-  .hamburger {
-    display: flex;                /* hamburger only visible on mobile */
-  }
-}
-
-/* ======================= Dark Mode Support ======================= */
-body.dark .hamburger span {
-  background: var(--text);        /* hamburger lines adapt to dark mode */
-}
-
-body.dark .nav-links {
-  background: var(--bg);          /* mobile dropdown adapts */
-}
-
-/* ======================= Page Width Adjustment ======================= */
-body, html {
-  width: 98%;
-  margin: 0 auto;
-}
-
-/* ======================= Responsive Fixes ======================= */
+/* ======================= Responsive ======================= */
 @media(max-width:1024px) {
   .section, footer {
     max-width: 98%;
     padding: 0 16px;
-  }
-  .section p {
-    margin-bottom: 18px;
-    line-height: 1.65;
-    word-spacing: normal;
-    letter-spacing: normal;
   }
 }
 
@@ -597,22 +399,11 @@ body, html {
     max-width: 98%;
     padding: 0 12px;
   }
-
   .section p {
-    line-height: 1.6;
-    margin-bottom: 16px;
     font-size: clamp(13px, 2.2vw, 15px);
-    word-spacing: normal;
-    letter-spacing: normal;
   }
-
   footer p {
     font-size: 13px;
-  }
-
-  .hero {
-    padding-top: 110px;
-    text-align: center; /* ensure hero text is centered */
   }
 }
 
@@ -621,209 +412,11 @@ body, html {
     max-width: 98%;
     padding: 0 8px;
   }
-
   .section p {
     line-height: 1.75;
-    margin-bottom: 14px;
     font-size: 13px;
-    word-spacing: normal;
   }
-
   footer p {
     font-size: 13px;
   }
 }
-
-/* ======================= Hero Text Slim Cursor ======================= */
-.cursor {
-  width: 2px; /* slim cursor width */
-  background: var(--text);
-  display: inline-block;
-  animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-/* ======================= Hero Text Centering ======================= */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-/* ======================= Cards Text Neatness ======================= */
-.card p {
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-align: justify;
-}
-.card h3 {
-  margin-bottom: 8px;
-}
-
-/* ======================= Mobile Desktop Mode Adjustments ======================= */
-@media(min-width:769px) and (max-width:1024px){
-  .section, footer {
-    max-width: 98%;
-    padding: 0 16px;
-  }
-  .section p {
-    word-spacing: normal;
-    letter-spacing: normal;
-  }
-}
-/* ======================= Experience Cards Text Fix ======================= */
-#experience .cards-container .card p {
-  text-align: left;           /* start text in same line */
-  word-spacing: normal;       /* default spacing between words */
-  letter-spacing: normal;     /* default spacing between letters */
-  line-height: 1.5;           /* neat spacing */
-  margin: 0 0 10px 0;         /* spacing below each paragraph */
-}
-
-/* ======================= Certificate Link Hover Effect ======================= */
-.card .card-link {
-  position: relative;
-  display: inline-block;
-  text-decoration: none; /* remove underline */
-  color: var(--primary);
-  padding-bottom: 2px; /* small padding for hover line */
-  margin-top: auto; /* attach near card base */
-}
-
-.card .card-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
-}
-
-.card .card-link:hover::after {
-  width: 100%; /* underline only under text, not full card width */
-}
-
-/* ======================= Cards Height Matching ======================= */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  align-items: stretch;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.card p {
-  margin-bottom: 12px;
-}
-
-/* Ensure all cards in a row match tallest card */
-.cards-container .card {
-  min-height: 100%;
-}
-
-/* ======================= Dark Mode Refinements ======================= */
-body.dark {
-  --bg: #121212;
-  --text: #f5f5f5;
-  --muted: #1f1f1f;
-  --card: #1f1f1f;
-  --primary: #fff;
-  --card-border-light: #fff;
-}
-
-body.dark nav {
-  background: rgba(28,28,28,0.98);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-body.dark .hero {
-  background: linear-gradient(180deg,#121212,#121212);
-}
-
-body.dark .hero-content p {
-  color: rgba(255,255,255,0.85);
-}
-
-body.dark .cursor {
-  background: var(--text);
-  font-weight: normal; /* ensures slim blinking cursor */
-}
-
-body.dark .card {
-  border: 1px solid var(--card-border-light);
-}
-
-body.dark .card:hover {
-  background: #2a2a2a;
-}
-
-body.dark .hero-buttons .btn,
-body.dark #contact-form button,
-body.dark #back-to-top {
-  background: #111;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-body.dark .hero-buttons .btn:hover,
-body.dark #contact-form button:hover,
-body.dark #back-to-top:hover {
-  background: #333;
-  color: #fff;
-  border-color: #fff;
-}
-
-/* ======================= Mobile Hero and Card Width Adjustment ======================= */
-@media(max-width:768px){
-  body, html {
-    width: 98%; /* entire page slightly smaller to avoid full width */
-    margin: 0 auto;
-  }
-
-  .cards-container {
-    grid-template-columns: 1fr; /* stack cards vertically */
-  }
-
-  .card {
-    min-height: auto;
-  }
-}
-
-/* ======================= Desktop Cards Text Neatness ======================= */
-@media(min-width:769px){
-  #experience .cards-container .card p,
-  .card p {
-    text-align: justify; /* neat justified text */
-    word-spacing: normal;
-    letter-spacing: normal;
-  }
-}
-
-/* ======================= Prevent Stretch in Summary/Text Sections ======================= */
-.section p, .card p {
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  word-spacing: normal;
-  letter-spacing: normal;
-  line-height: 1.55;
-}
-
-
-
-
-
-
