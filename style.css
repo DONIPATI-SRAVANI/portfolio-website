@@ -500,32 +500,32 @@ footer p {
 
 /* ======================= Hamburger Icon & Toggle ======================= */
 .hamburger {
-  display: none;
+  display: none; /* hidden by default, only mobile */
   flex-direction: column;
   justify-content: space-between;
   width: 36px;
   height: 24px;
   cursor: pointer;
-  z-index: 1300;
+  z-index: 1500;
 }
 
 .hamburger span {
   display: block;
   height: 3px;
-  background: var(--text);
+  background: var(--text); /* visible contrast */
   border-radius: 3px;
   transition: all 0.25s ease;
 }
 
 /* Toggle animation when active */
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translateY(10px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-10px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Hamburger visible only on mobile */
@@ -535,20 +535,17 @@ footer p {
   }
   .nav-links {
     display: none;
-    position: absolute;
-    top: 64px;
-    right: 14px;
-    background: var(--bg);
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    width: 220px;
-    flex-direction: column;
-    gap: 10px;
   }
   .nav-links.active {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
+}
+
+/* Ensure z-index is above nav links */
+.nav-links.active {
+  z-index: 1400;
 }
 
 /* ======================= Page Width Adjustment ======================= */
@@ -800,3 +797,4 @@ body.dark #back-to-top:hover {
   letter-spacing: normal;
   line-height: 1.55;
 }
+
