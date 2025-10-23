@@ -369,11 +369,16 @@ body.dark .hero-socials .icon-name { color: #fff; }
 
 #contact-form input,
 #contact-form textarea {
-  padding: 12px 12px;
+  padding: 10px 12px;
   border-radius: 6px;
   border: 1px solid #cfcfcf;
   background: transparent;
   color: inherit;
+}
+
+#contact-form textarea {
+  min-height: 120px;            /* gives good vertical size */
+  resize: both;                 /* allows expand both directions */
 }
 
 #contact-form button {
@@ -640,6 +645,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
