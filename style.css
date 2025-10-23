@@ -503,9 +503,7 @@ footer p {
   border-color: #333;
 }
 
-/* ======================= Hamburger Menu - Full Snippet ======================= */
-
-/* Hamburger button container */
+/* ======================= Hamburger Icon ======================= */
 .hamburger {
   display: none;               /* hidden on desktop */
   flex-direction: column;
@@ -513,63 +511,65 @@ footer p {
   width: 36px;
   height: 24px;
   cursor: pointer;
-  z-index: 1600;
-  position: relative;
-  background: transparent;     /* removes box */
-  border: none;                /* removes border */
-  padding: 0;                  /* removes padding */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  z-index: 1500;               /* ensure above nav dropdown */
 }
 
-/* Hamburger lines */
 .hamburger span {
   display: block;
   height: 3px;
-  width: 100%;
-  background: var(--text);      /* picks text color for light/dark mode */
+  background: var(--text);
   border-radius: 3px;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 
-/* Dark mode support */
-body.dark .hamburger span {
-  background: var(--text);     /* line color updates in dark mode */
-}
-
-/* Hamburger active state - transforms to X */
+/* ======================= Hamburger Toggle Animation ======================= */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Hamburger visible only on mobile */
-@media(max-width:768px){
+/* ======================= Mobile Only ======================= */
+@media(max-width:768px) {
+  .nav-links {
+    display: none;                /* hide nav links initially on mobile */
+    position: absolute;
+    top: 64px;
+    right: 16px;
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1400;                /* above other elements */
+  }
+
+  .nav-links.active {
+    display: flex;                /* show links when hamburger clicked */
+  }
+
   .hamburger {
-    display: flex;
+    display: flex;                /* hamburger only visible on mobile */
   }
 }
 
-/* Dropdown menu for mobile - below header */
-.nav-links {
-  display: none;               /* hidden by default on mobile */
-  position: absolute;
-  top: 60px;                   /* below the header */
-  right: 12px;
-  background: var(--bg);
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1500;
+/* ======================= Dark Mode Support ======================= */
+body.dark .hamburger span {
+  background: var(--text);        /* hamburger lines adapt to dark mode */
 }
 
-.nav-links.active {
-  display: flex;               /* show when hamburger is clicked */
+body.dark .nav-links {
+  background: var(--bg);          /* mobile dropdown adapts */
 }
 
 /* ======================= Page Width Adjustment ======================= */
@@ -821,6 +821,7 @@ body.dark #back-to-top:hover {
   letter-spacing: normal;
   line-height: 1.55;
 }
+
 
 
 
