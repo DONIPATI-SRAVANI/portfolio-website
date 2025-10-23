@@ -135,12 +135,12 @@ nav {
 
 /* Add border to toggle slider */
 .slider {
-  border: 5px solid #000; /* default black in light mode */
+  border: 2.5px solid #000; /* default black in light mode */
 }
 
 /* Dark mode adjustment */
 body.dark .slider {
-  border: 5px solid #fff; /* white in dark mode */
+  border: 2.5px solid #fff; /* white in dark mode */
 }
 
 
@@ -196,7 +196,7 @@ body.dark .slider {
   border-radius: 6px;
   background: var(--primary);
   color: #fff;
-  border: 2px solid var(--primary);
+  border: 1.5px solid var(--primary);
   text-decoration: none;
   transition: all 0.25s;
 }
@@ -371,7 +371,7 @@ body.dark .hero-socials .icon-name { color: #fff; }
 #contact-form textarea {
   padding: 10px 12px;
   border-radius: 6px;
-  border: 2px solid #cfcfcf;
+  border: 1.5px solid #cfcfcf;
   background: transparent;
   color: inherit;
 }
@@ -379,7 +379,7 @@ body.dark .hero-socials .icon-name { color: #fff; }
 #contact-form button {
   padding: 10px 14px;
   border-radius: 6px;
-  border: 1px solid var(--primary);
+  border: 1.5px solid var(--primary);
   background: var(--primary);
   color: #fff;
   cursor: pointer;
@@ -460,7 +460,7 @@ footer p {
   display: none;
   background: var(--primary);
   color: #fff;
-  border: 2px solid var(--primary);
+  border: 1.5px solid var(--primary);
   padding: 10px 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -595,7 +595,7 @@ body.dark #contact-form button,
 body.dark #back-to-top {
   background: #111;
   color: #fff;
-  border: 2px solid #fff;
+  border: 1.5px solid #fff;
 }
 
 body.dark .hero-buttons .btn:hover,
@@ -640,4 +640,5 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
