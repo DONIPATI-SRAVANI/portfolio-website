@@ -133,6 +133,17 @@ nav {
   transform: translateX(26px);
 }
 
+/* Add border to toggle slider */
+.slider {
+  border: 1px solid #000; /* default black in light mode */
+}
+
+/* Dark mode adjustment */
+body.dark .slider {
+  border: 1px solid #fff; /* white in dark mode */
+}
+
+
 /* ======================= Hero Section ======================= */
 .hero {
   min-height: 100vh;
@@ -628,6 +639,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
