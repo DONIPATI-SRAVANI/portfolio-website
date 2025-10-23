@@ -166,10 +166,6 @@ nav {
 .cursor {
   display: inline;
   position: relative;
-  top: -0.15em;       /* lift more to match text baseline */
-  width: 2px;          /* slim vertical line */
-  height: 1.2em;
-  background: var(--text);
   animation: blink 0.8s infinite;
 }
 
@@ -630,4 +626,5 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
