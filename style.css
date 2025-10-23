@@ -135,12 +135,12 @@ nav {
 
 /* Add border to toggle slider */
 .slider {
-  border: 1.25px solid #000; /* default black in light mode */
+  border: 1.2px solid #000; /* default black in light mode */
 }
 
 /* Dark mode adjustment */
 body.dark .slider {
-  border: 1.25px solid #fff; /* white in dark mode */
+  border: 1.2px solid #fff; /* white in dark mode */
 }
 
 
@@ -371,7 +371,7 @@ body.dark .hero-socials .icon-name { color: #fff; }
 #contact-form textarea {
   padding: 10px 12px;
   border-radius: 6px;
-  border: 1.25px solid #cfcfcf;
+  border: 1px solid #cfcfcf;
   background: transparent;
   color: inherit;
 }
@@ -640,6 +640,7 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
 
 
 
