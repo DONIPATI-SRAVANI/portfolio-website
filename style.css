@@ -778,3 +778,32 @@ footer p, .footer-links {
 .card h3 {
   margin-bottom: 8px;
 }
+
+/* ======================= Hamburger icon fix ======================= */
+.hamburger {
+  display: flex;               /* make it visible */
+  flex-direction: column;      /* stack bars */
+  justify-content: space-between;
+  width: 36px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1500;
+}
+
+.hamburger span {
+  display: block;              /* bars visible */
+  height: 3px;
+  width: 100%;                 /* full width */
+  background: var(--text);     /* contrast color */
+  border-radius: 3px;
+  transition: all 0.25s ease;
+}
+
+/* ======================= Experience cards text fix ======================= */
+#experience .cards-container .card p {
+  text-align: left;           /* start in same line */
+  word-spacing: normal;       /* default word spacing */
+  letter-spacing: normal;     /* default letter spacing */
+  line-height: 1.5;           /* neat spacing */
+  margin: 0 0 10px 0;         /* spacing below each paragraph */
+}
