@@ -21,8 +21,6 @@ body {
   line-height:1.5;
   scroll-behavior:smooth;
   text-decoration:none;
-  width:98%; /* Page width 98% */
-  margin:0 auto;
 }
 
 /* ======================= Navigation ======================= */
@@ -81,12 +79,7 @@ nav{
 
 .switch{position:relative;width:50px;height:24px;display:inline-block;}
 .switch input{display:none;}
-.slider{
-  position:absolute; inset:0;
-  background:#ccc;
-  border-radius:34px;
-  transition:background .25s;
-}
+.slider{position:absolute;inset:0;background:#ccc;border-radius:34px;transition:background .25s;}
 .slider::before{
   content:"";
   position:absolute;
@@ -101,7 +94,7 @@ nav{
 .switch input:checked + .slider{background:#111;}
 .switch input:checked + .slider::before{transform:translateX(26px);}
 
-/* Hamburger - mobile only */
+/* Hamburger - mobile */
 .hamburger{
   display:none;
   width:36px;
@@ -129,36 +122,34 @@ nav{
   padding:120px 20px 0;
   text-align:center;
   background:linear-gradient(180deg,#fafafa,#f5f5f5);
-  width:98%;
+}
+
+.hero-content{
+  max-width:90%;
   margin:0 auto;
 }
 
-.hero-content h1{
-  font-size:2.4rem;
-  margin-bottom:10px;
-  text-align:center;
-}
-
+.hero-content h1{font-size:2.4rem;margin-bottom:10px;}
 .hero-content p{
   font-size:1.1rem;
   margin-bottom:18px;
   color:rgba(0,0,0,0.75);
-  text-align:center;
+  white-space:nowrap;
 }
 
-/* Blinking cursor */
+/* Blinking cursor in center */
 .cursor{
-  display:inline;
+  display:inline-block;
   position:relative;
   top:-0.15em;
   animation: blink 0.8s infinite;
 }
+
 @keyframes blink{
   0%,50%,100%{opacity:1;}
   25%,75%{opacity:0;}
 }
-
-/* Hero Buttons */
+/* ======================= Hero Buttons ======================= */
 .hero-buttons .btn{
   display:inline-block;
   padding:10px 18px;
@@ -170,15 +161,17 @@ nav{
   text-decoration:none;
   transition:all 0.25s;
 }
+
 .hero-buttons .btn:hover{
   transform:translateY(-3px);
   background:#333;
   color:#fff;
   border-color:#333;
 }
+
 .hero-buttons{margin-bottom:30px;}
 
-/* Hero Socials */
+/* ======================= Hero Socials ======================= */
 .hero-socials{
   margin-top:16px;
   display:flex;
@@ -186,6 +179,7 @@ nav{
   gap:10px;
   flex-wrap:wrap;
 }
+
 .hero-socials .social{
   display:flex;
   flex-direction:column;
@@ -194,14 +188,17 @@ nav{
   text-decoration:none;
   transition:transform .18s,filter .18s;
 }
+
 .hero-socials .social i{
   font-size:30px;
   transition:color .3s;
 }
+
 .hero-socials .social:hover{
   transform:translateY(-4px);
   filter:brightness(.95);
 }
+
 .hero-socials .icon-name{
   margin-top:4px;
   font-size:12px;
@@ -209,6 +206,7 @@ nav{
   text-align:center;
   color:var(--primary);
 }
+
 /* Brand Colors */
 .social.linkedin i{color:#0A66C2;}
 .social.github i{color:#181717;}
@@ -226,17 +224,21 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin:80px auto;
   padding:0 20px;
 }
+
 .section h2{
   text-align:center;
   margin-bottom:20px;
   font-size:1.9rem;
 }
+
 .section p{
   margin-bottom:20px;
   line-height:1.7;
   font-size:clamp(14px,1.6vw,17px);
   text-align:justify;
+  word-spacing:0.1em;
 }
+
 /* ======================= Cards Grid ======================= */
 .cards-container{
   display:grid;
@@ -257,9 +259,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   flex-direction:column;
   justify-content:space-between;
   align-items:stretch;
-  word-spacing: normal;
-  letter-spacing: normal;
-  text-align:justify;
+  word-break:break-word;
 }
 
 .card:hover{
@@ -268,18 +268,17 @@ body.dark .hero-socials .icon-name{color:#fff;}
   background:#e6e6e6;
 }
 
+/* Card title + text + link neatly */
 .card h3{
-  margin:0 0 10px 0;
+  margin:0;
   font-size:1.1rem;
-  line-height:1.4;
+  margin-bottom:10px;
 }
 
 .card p{
-  flex:1 1 auto;
   margin-bottom:12px;
-  word-spacing: normal;
-  letter-spacing: normal;
-  text-align:justify;
+  line-height:1.5;
+  letter-spacing:0.5px;
 }
 
 .card-link{
@@ -287,19 +286,13 @@ body.dark .hero-socials .icon-name{color:#fff;}
   font-weight:700;
   color:var(--primary);
   text-decoration:none;
-  margin-top:auto; /* align at bottom of card */
-}
-
-.card-link:hover{
-  text-decoration:underline;
+  margin-top:auto; /* sticks to bottom */
+  align-self:flex-start;
+  word-break:normal;
 }
 
 /* Skills cards */
-.skills-container .card{
-  text-align:center;
-  font-weight:700;
-}
-
+.skills-container .card{text-align:center;font-weight:700;}
 /* ======================= Contact Form ======================= */
 #contact-form{
   display:flex;
@@ -334,7 +327,7 @@ body.dark .hero-socials .icon-name{color:#fff;}
   border-color:#333;
 }
 
-/* Form Status & Spinner & Arrow */
+/* Form Status & Spinner */
 #form-status{
   text-align:center;
   font-weight:600;
@@ -357,12 +350,9 @@ body.dark .hero-socials .icon-name{color:#fff;}
   margin-right:6px;
 }
 
-@keyframes spin{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
-}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-#form-status .arrow,#form-status .message-text{
+#form-status .arrow, #form-status .message-text{
   display:inline-block;
   opacity:1;
   animation:disappear 5s forwards;
@@ -383,16 +373,16 @@ footer{
   color:inherit;
 }
 
+footer p{
+  font-size:clamp(12px,1.2vw,14px);
+  text-align:center;
+  margin-bottom:8px;
+}
+
 .footer-links a{
   color:inherit;
   text-decoration:none;
   margin:0 6px;
-}
-
-footer p{
-  font-size:12px; /* smaller in desktop */
-  margin-top:6px;
-  line-height:1.5;
 }
 
 /* ======================= Back-to-top ======================= */
@@ -429,12 +419,31 @@ body.dark{
   --card-border-light:#fff;
 }
 
-body.dark nav{background:rgba(28,28,28,0.98); box-shadow:0 2px 8px rgba(0,0,0,0.5);}
-body.dark .hero{background:linear-gradient(180deg,#121212,#121212);}
-body.dark .hero-content p{color:rgba(255,255,255,0.85);}
-body.dark .cursor{background:var(--text);}
-body.dark .card{border:1px solid var(--card-border-light);}
-body.dark .card:hover{background:#2a2a2a;}
+body.dark nav{
+  background:rgba(28,28,28,0.98);
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+}
+
+body.dark .hero{
+  background:linear-gradient(180deg,#121212,#121212);
+}
+
+body.dark .hero-content p{
+  color:rgba(255,255,255,0.85);
+}
+
+body.dark .cursor{
+  background:var(--text);
+}
+
+body.dark .card{
+  border:1px solid var(--card-border-light);
+}
+
+body.dark .card:hover{
+  background:#2a2a2a;
+}
+
 body.dark .hero-buttons .btn,
 body.dark #contact-form button,
 body.dark #back-to-top{
@@ -442,6 +451,7 @@ body.dark #back-to-top{
   color:#fff;
   border:1px solid #fff;
 }
+
 body.dark .hero-buttons .btn:hover,
 body.dark #contact-form button:hover,
 body.dark #back-to-top:hover{
@@ -452,8 +462,14 @@ body.dark #back-to-top:hover{
 
 /* ======================= Responsive ======================= */
 @media(max-width:1024px){
-  .section, footer{max-width:95%; padding:0 16px;}
-  .section p{margin-bottom:18px; line-height:1.65;}
+  .section, footer{
+    max-width:95%;
+    padding:0 16px;
+  }
+  .section p{
+    margin-bottom:18px;
+    line-height:1.65;
+  }
 }
 
 @media(max-width:768px){
@@ -466,9 +482,13 @@ body.dark #back-to-top:hover{
     padding:12px;
     border-radius:8px;
     box-shadow:0 8px 24px rgba(0,0,0,0.12);
-    width:90%; /* smaller menu on mobile */
+    width:220px;
   }
-  .nav-links.active{display:flex;flex-direction:column;gap:10px;}
+  .nav-links.active{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
   .hamburger{display:inline-block;}
   .controls{gap:8px;}
   .hero{padding-top:110px;}
@@ -478,133 +498,7 @@ body.dark #back-to-top:hover{
 }
 
 @media(max-width:480px){
-  .section, footer{max-width:95%; padding:0 8px;}
+  .section, footer{max-width:90%; padding:0 8px;}
   .section p{line-height:1.75; margin-bottom:14px; font-size:13px;}
   footer p{font-size:12px;}
-}
-/* ======================= Hamburger Menu Toggle ======================= */
-.hamburger.active span:nth-child(1){
-  transform:rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger.active span:nth-child(2){
-  opacity:0;
-}
-
-.hamburger.active span:nth-child(3){
-  transform:rotate(-45deg) translate(6px, -6px);
-}
-
-/* ======================= Education & Experience Cards ======================= */
-.education-container, .experience-container{
-  display:grid;
-  gap:20px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-}
-
-.education-container .card, .experience-container .card{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  align-items:stretch;
-  min-height:1px; /* height adjusts based on highest card in section via JS if needed */
-}
-
-.education-container .card h3, .experience-container .card h3{
-  margin-bottom:10px;
-  font-size:1.1rem;
-  line-height:1.4;
-}
-
-.education-container .card p, .experience-container .card p{
-  margin-bottom:12px;
-  word-spacing: normal;
-  letter-spacing: normal;
-  text-align:justify;
-}
-
-/* ======================= Certificate Link Only Text Clickable ======================= */
-.card .card-link{
-  display:inline-block;
-  cursor:pointer;
-}
-
-.card .card-link:hover{
-  text-decoration:underline;
-}
-
-.card .card-link span{
-  pointer-events:none; /* ensures only text clickable, not extra padding */
-}
-
-/* ======================= Page Width & Footer Spacing Adjustments ======================= */
-body, html{
-  width:98%;
-  max-width:100%;
-  margin:0 auto;
-}
-
-footer{
-  margin-top:60px; /* extra spacing below footer */
-}
-
-/* ======================= Typing Text Center in Hero ======================= */
-.hero-content h1, .hero-content p{
-  display:inline-block;
-  text-align:center;
-  width:auto;
-}
-
-.hero-content{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  width:100%;
-}
-
-/* ======================= Cards Text Fixes ======================= */
-.card p{
-  word-spacing:normal;
-  letter-spacing:normal;
-  text-align:justify;
-  hyphens:auto;
-  line-height:1.5;
-  overflow-wrap:break-word;
-}
-
-/* ======================= Skills & Certificates Adjustments ======================= */
-.skills-container .card{
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.certificates-container .card-link{
-  display:inline-block;
-  margin-top:auto;
-  text-decoration:none;
-  color:var(--primary);
-}
-
-.certificates-container .card-link:hover{
-  text-decoration:underline;
-}
-
-/* ======================= Mobile & Desktop Adjustments ======================= */
-@media(max-width:768px){
-  body, html{width:95%;}
-  .nav-links{
-    width:90%;
-  }
-  .education-container, .experience-container{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(min-width:769px){
-  body, html{width:98%;}
-  .education-container, .experience-container{
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  }
 }
