@@ -163,14 +163,13 @@ nav {
   color: rgba(0, 0, 0, 0.75);
 }
 
-/* Blinking cursor - slim and centered */
 .cursor {
-  display: inline-block;
-  width: 2px; 
+  display: inline;
+  position: relative;
+  top: -0.15em;       /* lift more to match text baseline */
+  width: 2px;          /* slim vertical line */
   height: 1.2em;
   background: var(--text);
-  vertical-align: bottom;
-  margin-left: 2px;
   animation: blink 0.8s infinite;
 }
 
@@ -631,3 +630,4 @@ body.dark .nav-links {
     font-size: 13px;
   }
 }
+
